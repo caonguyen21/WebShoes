@@ -19,7 +19,6 @@ class Database
     private function connectDB()
     {
         $this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
-
         if (!$this->link) {
             $this->error = "Connection fail" . $this->link->connect_error;
             return false;
@@ -31,7 +30,6 @@ class Database
     public function select($query)
     {
         $result = $this->link->query($query) or die($this->link->error . __LINE__);
-
         if ($result->num_rows > 0) {
             return $result;
         } else {
@@ -44,7 +42,6 @@ class Database
     public function insert($query)
     {
         $insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
-
         if ($insert_row) {
             return $insert_row;
         } else {
@@ -57,7 +54,6 @@ class Database
     public function update($query)
     {
         $update_row = $this->link->query($query) or die($this->link->error . __LINE__);
-
         if ($update_row) {
             return $update_row;
         } else {
@@ -70,7 +66,6 @@ class Database
     public function delete($query)
     {
         $delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
-
         if ($delete_row) {
             return $delete_row;
         } else {

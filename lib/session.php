@@ -1,7 +1,4 @@
 <?php
-
-/** *Session Class **/
-
 class Session
 {
     public static function init()
@@ -55,3 +52,4 @@ class Session
         header("Location:login.php");
     }
 }
+?>

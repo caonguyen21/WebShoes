@@ -24,8 +24,9 @@
     //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <?php include '../classes/admin/adminlogin.php'; ?>
 <?php
+
 $class = new adminlogin();
-if ($_SERVER['REQUEST METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $adminUser = $_POST['adminUser'];
     $adminPass = $_POST['adminPass'];
     $login_check = $class->login_admin($adminUser, $adminPass);
@@ -71,9 +72,8 @@ if ($_SERVER['REQUEST METHOD'] === 'POST') {
         padding: 0.4rem;
     }
 </style>
-
 <body>
-    <form action="index.php" method="post">
+    <form action="login.php" method="post">
         <h1>Administrator</h1>
         <span>
             <?php if (isset($login_check)) {
@@ -81,13 +81,12 @@ if ($_SERVER['REQUEST METHOD'] === 'POST') {
             } ?>
         </span>
         <div class="input-field">
-            <input type="text" name="username" id="username" placeholder="Enter Username" />
+            <input type="text" name="adminUser"  placeholder="Enter Username" />
         </div>
         <div class="input-field">
-            <input type="password" name="password" id="password" placeholder="Enter Password" />
+            <input type="password" name="adminPass"  placeholder="Enter Password" />
         </div>
         <input type="submit" value="LogIn" />
     </form>
 </body>
-
 </html>
