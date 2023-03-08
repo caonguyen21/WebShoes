@@ -1,17 +1,18 @@
 <?php
-    include_once '../lib/database.php';
-    include_once '../helpers/format.php';
+include_once '../lib/database.php';
+include_once '../helpers/format.php';
 ?>
 
 <?php
-    class cart {
-        private $db;
-        private $fm;
+class cart
+{
+    private $db;
+    private $fm;
 
-        public function__construct(){
-            $this->db = new Database();
-            $this->fm = new Format();
-        }
-        
+    public function __construct()
+    {
+        $this->db = new Database();
+        $this->fm = new Format();
     }
+}
 ?>

@@ -24,7 +24,6 @@
     header("Pragma: no-cache");
     header("Expires: Tue, 03 Feb 2023 05:00:00 GMT");
     header("Cache-Control: max-age=25292000");
-
 ?>
 
 <!-- Header desktop -->

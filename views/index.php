@@ -6,7 +6,6 @@
 </head>
 
 <body class="animsition">
-
     <!-- Header -->
     <header>
         <?php include 'blocks/header.php'; ?>
