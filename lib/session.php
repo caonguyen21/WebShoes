@@ -52,4 +52,3 @@ class Session
         header("Location:login.php");
     }
 }
-?>

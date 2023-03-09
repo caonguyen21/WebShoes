@@ -3,7 +3,7 @@ include '../lib/database.php';
 include '../helpers/format.php';
 ?>
 <?php
-class category
+class brand
 {
     private $db;
     private $fm;
@@ -12,15 +12,15 @@ class category
         $this->db = new Database();
         $this->fm = new Format();
     }
-    public function insert_category($catName)
+    public function insert_brand($brandName)
     {
-        $catName = $this->fm->validation($catName);
-        $catName = mysqli_real_escape_string($this->db->link, $catName);
-        if (empty($catName)) {
+        $brandName = $this->fm->validation($brandName);
+        $brandName = mysqli_real_escape_string($this->db->link, $brandName);
+        if (empty($brandName)) {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
-            $query = "INSERT INTO loaigiay (TenLoai) VALUES ('$catName')";
+            $query = "INSERT INTO thuonghieu (TenThuongHieu) VALUES ('$brandName')";
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
@@ -32,28 +32,28 @@ class category
         }
     }
 
-    public function show_category()
+    public function show_brand()
     {
-        $query = "SELECT * FROM loaigiay ORDER BY MaLoai DESC";
+        $query = "SELECT * FROM thuonghieu ORDER BY MaThuongHieu DESC";
         $result = $this->db->select($query);
         return $result;
     }
-    public function getcatbyId($id)
+    public function getbrandbyId($id)
     {
-        $query = "SELECT * FROM loaigiay WHERE MaLoai='$id'";
+        $query = "SELECT * FROM thuonghieu WHERE MaThuongHieu='$id'";
         $result = $this->db->select($query);
         return $result;
     }
-    public function update_category($catName, $status, $id)
+    public function update_brand($brandName, $id)
     {
-        $catName = $this->fm->validation($catName);
-        $catName = mysqli_real_escape_string($this->db->link, $catName);
+        $brandName = $this->fm->validation($brandName);
+        $brandName = mysqli_real_escape_string($this->db->link, $brandName);
         $id = mysqli_real_escape_string($this->db->link, $id);
-        if (empty($catName)) {
+        if (empty($brandName)) {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
-            $query = "UPDATE loaigiay  SET TenLoai = '$catName' , TrangThai='$status' WHERE MaLoai='$id'";
+            $query = "UPDATE thuonghieu  SET TenThuongHieu = '$brandName' WHERE MaThuongHieu='$id'";
             $result = $this->db->update($query);
             if ($result) {
                 $alert = "<span class='success'> Thay đổi danh mục thành công </span>";
@@ -63,7 +63,7 @@ class category
                 return  $alert;
             }
         }
-        $query = "SELECT * FROM loaigiay WHERE MaLoai='$id'";
+        $query = "SELECT * FROM thuonghieu WHERE MaThuongHieu='$id'";
         $result = $this->db->select($query);
         return $result;
     }
