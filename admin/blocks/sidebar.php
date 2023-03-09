@@ -23,10 +23,10 @@
                         <li><a href="sliderlist.php">Slider List</a> </li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Category Option</a>
+                <li><a class="menuitem">DANH MỤC SẢN PHẨM</a>
                     <ul class="submenu">
-                        <li><a href="addcat.php">Add Category</a> </li>
-                        <li><a href="catlist.php">Category List</a> </li>
+                        <li><a href="catadd.php">THÊM DANH MỤC</a> </li>
+                        <li><a href="catlist.php">DANH SÁCH DANH MỤC</a> </li>
                     </ul>
                 </li>
                 <li><a class="menuitem">Product Option</a>

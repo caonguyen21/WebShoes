@@ -87,10 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } ?>
     </span>
     <div class="input-field">
-      <input type="text" name="adminUser" required="" placeholder="Enter Username" />
+      <input type="text" name="adminUser" required="" placeholder="Nhập Username" />
     </div>
     <div class="input-field">
-      <input type="password" name="adminPass" required="" placeholder="Enter Password" />
+      <input type="password" name="adminPass" required="" placeholder="Nhập Password" />
     </div>
     <input type="submit" value="Log In" />
   </form>

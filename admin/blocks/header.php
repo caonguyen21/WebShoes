@@ -7,8 +7,6 @@
 <?php
 include '../lib/session.php';
 Session::checkSession();
-include '../lib/database.php';
-include '../helpers/format.php';
 ?>
 <!DOCTYPE html>
 <html>
