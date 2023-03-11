@@ -34,10 +34,10 @@
                         <li><a href="sliderlist.php">Slider List</a> </li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Product Option</a>
+                <li><a class="menuitem">Sản phẩm</a>
                     <ul class="submenu">
-                        <li><a href="addproduct.php">Add Product</a> </li>
-                        <li><a href="productlist.php">Product List</a> </li>
+                        <li><a href="productadd.php">Thêm sản phẩm</a> </li>
+                        <li><a href="productlist.php">Danh sách sản phẩm</a> </li>
                     </ul>
                 </li>
             </ul>

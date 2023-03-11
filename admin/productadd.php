@@ -1,86 +1,106 @@
-﻿<?php include 'inc/header.php';?>
-<?php include 'inc/sidebar.php';?>
+﻿<?php include '../admin/blocks/header.php';?>
+<?php include '../admin/blocks/sidebar.php';?>
+<?php include '../classes/admin/category.php';?>
+<?php include '../classes/admin/brand.php';?>
+<?php include '../classes/admin/product.php';?>
+<?php
+    $pd = new product();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+               
+        $insertProduct = $pd->insert_product($_POST,$_FILES);
+
+    }
+?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Add New Product</h2>
-        <div class="block">               
-         <form action="" method="post" enctype="multipart/form-data">
+        <h2>Thêm sản phẩm</h2>
+        <div class="block">      
+            <?php 
+                if(isset($delbrand)){
+                    echo $delbrand;
+                }
+            ?>         
+         <form action="productadd.php" method="post" enctype="multipart/form-data">
             <table class="form">
                
                 <tr>
                     <td>
-                        <label>Name</label>
+                        <label>Tên sản phẩm</label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Product Name..." class="medium" />
+                        <input type="text" name="TenGiay" placeholder="Enter Product Name..." class="medium" />
                     </td>
                 </tr>
+
 				<tr>
                     <td>
-                        <label>Category</label>
+                        <label>Loại Giày</label>
                     </td>
                     <td>
-                        <select id="select" name="select">
-                            <option>Select Category</option>
-                            <option value="1">Category One</option>
-                            <option value="2">Category Two</option>
-                            <option value="3">Category Three</option>
+                        <select id="select" name="loaigiay">
+                            <option>------Select Category------</option>
+                            <?php 
+                            $cat = new category();
+                            $catlist = $cat->show_category();
+
+                            if($catlist){
+                                while($result = $catlist->fetch_assoc()){
+                            ?>
+
+                            <option value="<?php echo $result['MaLoai'] ?>"><?php echo $result['TenLoai'] ?></option>
+
+                                <?php 
+                                    }
+                            }
+                            ?>
+
                         </select>
                     </td>
                 </tr>
+
 				<tr>
                     <td>
-                        <label>Brand</label>
+                        <label>Thương hiệu</label>
                     </td>
                     <td>
-                        <select id="select" name="select">
-                            <option>Select Brand</option>
-                            <option value="1">Brand One</option>
-                            <option value="2">Brand Two</option>
-                            <option value="3">Brand Three</option>
+                        <select id="select" name="thuonghieu">
+                            <option>------Select Brand------</option>
+                            <?php 
+                            $brand = new brand();
+                            $brandlist = $brand->show_brand();
+
+                            if($brandlist){
+                                while($result = $brandlist->fetch_assoc()){
+                            ?>
+
+                            <option value="<?php echo $result['MaThuongHieu'] ?>"><?php echo $result['TenThuongHieu'] ?></option>
+
+                                <?php 
+                                    }
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
 				
-				 <tr>
-                    <td style="vertical-align: top; padding-top: 9px;">
-                        <label>Description</label>
-                    </td>
-                    <td>
-                        <textarea class="tinymce"></textarea>
-                    </td>
-                </tr>
 				<tr>
                     <td>
-                        <label>Price</label>
+                        <label>Giá bán</label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Price..." class="medium" />
+                        <input type="text" name="GiaBan" placeholder="Enter Price..." class="medium" />
                     </td>
                 </tr>
             
                 <tr>
                     <td>
-                        <label>Upload Image</label>
+                        <label>Ảnh</label>
                     </td>
                     <td>
-                        <input type="file" />
+                        <input type="file" name="AnhBia" />
                     </td>
                 </tr>
 				
-				<tr>
-                    <td>
-                        <label>Product Type</label>
-                    </td>
-                    <td>
-                        <select id="select" name="select">
-                            <option>Select Type</option>
-                            <option value="1">Featured</option>
-                            <option value="2">Non-Featured</option>
-                        </select>
-                    </td>
-                </tr>
-
 				<tr>
                     <td></td>
                     <td>
@@ -103,6 +123,6 @@
     });
 </script>
 <!-- Load TinyMCE -->
-<?php include 'inc/footer.php';?>
+<?php include '../admin/blocks/footer.php';?>
 
 
