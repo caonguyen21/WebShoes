@@ -3,6 +3,7 @@
 <?php include '../classes/admin/category.php';?>
 <?php include '../classes/admin/brand.php';?>
 <?php include '../classes/admin/product.php';?>
+<?php include '../classes/admin/nhacungcap.php';?>
 <?php
     $pd = new product();
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
@@ -20,7 +21,7 @@
                     echo $delbrand;
                 }
             ?>         
-         <form action="productadd.php" method="post" enctype="multipart/form-data">
+         <form action="productAdd.php" method="post" enctype="multipart/form-data">
             <table class="form">
                
                 <tr>
@@ -82,7 +83,33 @@
                         </select>
                     </td>
                 </tr>
-				
+
+				<tr>
+                    <td>
+                        <label>Nhà cung cấp</label>
+                    </td>
+                    <td>
+                        <select id="select" name="nhacungcap">
+                            <option>------Select NhaCungCap------</option>
+                            <?php 
+                            $Ncc = new nhacungcap();
+                            $Ncclist = $Ncc->show_nhacungcap();
+
+                            if($Ncclist){
+                                while($result = $Ncclist->fetch_assoc()){
+                            ?>
+
+                            <option value="<?php echo $result['MaNCC'] ?>"><?php echo $result['TenNCC'] ?></option>
+
+                                <?php 
+                                    }
+                            }
+                            ?>
+
+                        </select>
+                    </td>
+                </tr>
+
 				<tr>
                     <td>
                         <label>Giá bán</label>

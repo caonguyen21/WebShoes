@@ -17,6 +17,7 @@ class product
         $TenGiay = mysqli_real_escape_string($this->db->link, $data['TenGiay']);
         $loaigiay = mysqli_real_escape_string($this->db->link, $data['loaigiay']);
         $thuonghieu = mysqli_real_escape_string($this->db->link, $data['thuonghieu']);
+        $nhacungcap = mysqli_real_escape_string($this->db->link, $data['nhacungcap']);
         $GiaBan = mysqli_real_escape_string($this->db->link, $data['GiaBan']);
         //Kiem tra hình ảnh và lấy hình ảnh cho vào folder upload
         $permited = array('jpg','jpeg','png','gif');
@@ -29,12 +30,12 @@ class product
         $unique_image = substr(md5(time()),0.10).'.'.$file_ext;
         $uploaded_image = "uploads/".$unique_image;
 
-        if ($TenGiay=="" ||$loaigiay=="" ||$thuonghieu=="" ||$GiaBan=="" || $file_name=="") {
+        if ($TenGiay=="" ||$loaigiay=="" ||$thuonghieu==""||$nhacungcap=="" ||$GiaBan=="" || $file_name=="") {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
             move_uploaded_file($file_temp,$uploaded_image);
-            $query = "INSERT INTO tbl_product(TenGiay,MaLoai,MaThuongHieu,GiaBan,AnhBia) VALUES ('$TenGiay','$loaigiay','$thuonghieu','$GiaBan','$unique_image')";
+            $query = "INSERT INTO sanpham(TenGiay,MaLoai,MaThuongHieu,MaNCC,GiaBan,AnhBia) VALUES ('$TenGiay','$loaigiay','$thuonghieu','$nhacungcap','$GiaBan','$unique_image')";
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
