@@ -13,6 +13,7 @@ $nhacungcap = new nhacungcap();
                     <tr>
                         <th>STT</th>
                         <th>TÊN NHÀ CUNG CẤP</th>
+                        <th>TRẠNG THÁI</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -27,6 +28,15 @@ $nhacungcap = new nhacungcap();
                             <tr class="odd gradeX">
                                 <td><?php echo $i ?></td>
                                 <td><?php echo $result['TenNCC'] ?></td>
+                                <td>
+                                    <?php
+                                    if ($result['TrangThai'] == 1) {
+                                        echo "<span style='color:green'>Active</span>";
+                                    } else {
+                                        echo "<span style='color:red'>Inactive</span>";
+                                    }
+                                    ?>
+                                </td>
                                 <td><a href="nccEdit.php?Nccid=<?php echo $result['MaNCC'] ?>">Edit</a></td>
                             </tr>
                     <?php

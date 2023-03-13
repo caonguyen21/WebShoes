@@ -3,18 +3,11 @@
 <?php include '../classes/admin/nhacungcap.php'; ?>
 <?php
 $nhacungcap = new nhacungcap();
-$insert_nhacungcap = "";
-$diachi = "";
-$dienthoai = "";
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $nccName = $_POST['TenNCC'];
-//     $insert_nhacungcap = $nhacungcap->insert_nhacungcap($nccName);
-// }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nccName = $_POST['TenNCC'];
-    $diachi = $_POST['DiaChi'];
-    $dienthoai = $_POST['DienThoai'];
-    $insert_nhacungcap = $nhacungcap->insert_nhacungcap($nccName, $diachi, $dienthoai);
+    $TenNCC = $_POST['TenNCC'];
+    $DiaChi = $_POST['DiaChi'];
+    $DienThoai = $_POST['DienThoai'];
+    $insert_nhacungcap = $nhacungcap->insert_nhacungcap($TenNCC, $DiaChi, $DienThoai);
 }
 
 ?>
@@ -36,18 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="DiaChi" value="<?php echo $diachi;?>" placeholder="Nhập địa chỉ.." required="" class="medium" />
+                            <input type="text" name="DiaChi" placeholder="Nhập địa chỉ.." required="" class="medium" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="DienThoai" value="<?php echo $dienthoai;?>" placeholder="Nhập số điện thoại..." required="" class="medium" />
+                            <input type="text" name="DienThoai" placeholder="Nhập số điện thoại..." required="" class="medium" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>
-                            <input type="submit" name="submit" Value="Submit" />
+                            <input type="submit" name="submit" Value="Create" />
                         </td>
                     </tr>
                 </table>

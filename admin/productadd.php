@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         <h2>Thêm sản phẩm</h2>
         <div class="block">
             <?php
-            if (isset($delbrand)) {
-                echo $delbrand;
+            if (isset($insertProduct)) {
+                echo $insertProduct;
             }
             ?>
             <form action="productAdd.php" method="post" enctype="multipart/form-data">
@@ -92,8 +92,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                                     }
                                 }
                                 ?>
-
                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Thời gian bảo hành</label>
+                        </td>
+                        <td>
+                            <input type="text" name="BaoHanh" placeholder="Nhập thời gian bảo hành" class="medium" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Size giày</label>
+                        </td>
+                        <td>
+                            <input type="text" name="Size" placeholder="Nhập size giày" class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +116,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                             <label>Giá bán</label>
                         </td>
                         <td>
-                            <input type="text" name="GiaBan" placeholder="Nhập giá tiền..." class="medium" />
+                            <input type="text" name="GiaBan" placeholder="Nhập giá tiền" class="medium" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Số lượng tồn</label>
+                        </td>
+                        <td>
+                            <input type="text" name="SL" placeholder="Nhập số lượng tồn" class="medium" />
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                     <tr>
                         <td></td>
                         <td>
-                            <input type="submit" name="submit" Value="Save" />
+                            <input type="submit" name="submit" Value="Create" />
                         </td>
                     </tr>
                 </table>

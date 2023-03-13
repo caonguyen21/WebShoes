@@ -12,15 +12,17 @@ class nhacungcap
         $this->db = new Database();
         $this->fm = new Format();
     }
-    public function insert_nhacungcap($nccName)
+    public function insert_nhacungcap($TenNCC, $DiaChi, $DienThoai)
     {
-        $nccName = $this->fm->validation($nccName);
-        $NccName = mysqli_real_escape_string($this->db->link, $nccName);
-        if (empty($nccName)) {
+        $TenNCC = $this->fm->validation($TenNCC);
+        $TenNCC = mysqli_real_escape_string($this->db->link, $TenNCC);
+        $DiaChi = mysqli_real_escape_string($this->db->link, $DiaChi);
+        $DienThoai = mysqli_real_escape_string($this->db->link, $DienThoai);
+        if (empty($TenNCC) || empty($DiaChi) || empty($DienThoai)) {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
-            $query = "INSERT INTO nhacungcap(TenNCC) VALUES ('$nccName')";
+            $query = "INSERT INTO nhacungcap(TenNCC, DiaChi, DienThoai) VALUES ('$TenNCC', '$DiaChi', '$DienThoai')";
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
@@ -44,16 +46,18 @@ class nhacungcap
         $result = $this->db->select($query);
         return $result;
     }
-    public function update_nhacungcap($nccName, $status, $id)
+    public function update_nhacungcap($nccName, $diachi, $dienthoai, $status, $id)
     {
         $nccName = $this->fm->validation($nccName);
         $nccName = mysqli_real_escape_string($this->db->link, $nccName);
+        $diachi = mysqli_real_escape_string($this->db->link, $diachi);
+        $dienthoai = mysqli_real_escape_string($this->db->link, $dienthoai);
         $id = mysqli_real_escape_string($this->db->link, $id);
         if (empty($nccName)) {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
-            $query = "UPDATE nhacungcap  SET TenNCC = '$nccName' , TrangThai='$status' WHERE MaNCC='$id'";
+            $query = "UPDATE nhacungcap  SET TenNCC = '$nccName' , TrangThai='$status' ,DiaChi = '$diachi',DienThoai = '$dienthoai' WHERE MaNCC='$id'";
             $result = $this->db->update($query);
             if ($result) {
                 $alert = "<span class='success'> Thay đổi nhà cung cấp thành công </span>";

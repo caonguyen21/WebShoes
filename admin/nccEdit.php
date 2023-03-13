@@ -8,16 +8,13 @@ if (!isset($_GET['Nccid']) || $_GET['Nccid'] == null) {
 } else {
     $id = $_GET['Nccid'];
 }
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $nhacungcap = $_POST['TenNCC'];
-//     $update_nhacungcap = $nhacungcap->update_nhacungcap($nhacungcap,$diachi,$dienthoai,$id);
-// }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ncc = new nhacungcap();
-    $nccName= $_POST['TenNCC'];
+    $nccName = $_POST['TenNCC'];
     $diachi = $_POST['DiaChi'];
     $dienthoai = $_POST['DienThoai'];
-    $update_nhacungcap = $ncc->update_nhacungcap($nccName,$diachi,$dienthoai,$id);
+    $status = isset($_POST['status']) ? 1 : 0;
+    $update_nhacungcap = $ncc->update_nhacungcap($nccName, $diachi, $dienthoai, $status, $id);
 }
 
 ?>
@@ -50,6 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <tr>
                                 <td>
                                     <input type="text" value="<?php echo $result['DienThoai'] ?>" name="DienThoai" placeholder="Sửa số điện thoại nhà cung cấp..." required="" class="medium" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Active<input type="checkbox" name="status" <?php echo ($result['TrangThai'] == 1) ? 'checked' : ''; ?>>
                                 </td>
                             </tr>
                             <tr>
