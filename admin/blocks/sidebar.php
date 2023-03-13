@@ -20,10 +20,10 @@
                         <li><a href="nccList.php">DANH SÁCH NHÀ CUNG CẤP</a> </li>
                     </ul>
                 </li>
-                <li><a class="menuitem">THÊM SẢN PHẨM</a>
+                <li><a class="menuitem">SẢN PHẨM</a>
                     <ul class="submenu">
-                        <li><a href="productAdd.php">Thêm sản phẩm</a> </li>
-                        <li><a href="productList.php">Danh sách sản phẩm</a> </li>
+                        <li><a href="productAdd.php">THÊM SẢN PHẨM</a> </li>
+                        <li><a href="productList.php">DANH SÁCH SẢN PHẨM</a> </li>
                     </ul>
                 </li>
                 <li><a class="menuitem">Site Option</a>
@@ -31,7 +31,6 @@
                         <li><a href="titleslogan.php">Title & Slogan</a></li>
                         <li><a href="social.php">Social Media</a></li>
                         <li><a href="copyright.php">Copyright</a></li>
-
                     </ul>
                 </li>
                 <li><a class="menuitem">Update Pages</a>
@@ -46,7 +45,7 @@
                         <li><a href="sliderlist.php">Slider List</a> </li>
                     </ul>
                 </li>
-                
+
             </ul>
         </div>
     </div>

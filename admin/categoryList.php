@@ -13,6 +13,7 @@ $cat = new category();
                     <tr>
                         <th>STT</th>
                         <th>TÊN DANH MỤC</th>
+                        <th>TRẠNG THÁI</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -27,6 +28,15 @@ $cat = new category();
                             <tr class="odd gradeX">
                                 <td><?php echo $i ?></td>
                                 <td><?php echo $result['TenLoai'] ?></td>
+                                <td>
+                                    <?php
+                                    if ($result['TrangThai'] == 1) {
+                                        echo "<span style='color:green'>Active</span>";
+                                    } else {
+                                        echo "<span style='color:red'>Inactive</span>";
+                                    }
+                                    ?>
+                                </td>
                                 <td><a href="categoryEdit.php?catid=<?php echo $result['MaLoai'] ?>">Edit</a></td>
                             </tr>
                     <?php

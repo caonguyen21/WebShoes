@@ -1,152 +1,78 @@
-﻿<?php include 'inc/header.php';?>
-<?php include 'inc/sidebar.php';?>
-<div class="grid_10">
-    <div class="box round first grid">
-        <h2>Post List</h2>
-        <div class="block">  
-            <table class="data display datatable" id="example">
-			<thead>
-				<tr>
-					<th>Post Title</th>
-					<th>Description</th>
-					<th>Category</th>
-					<th>Image</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="odd gradeX">
-					<td>Trident</td>
-					<td>Internet Explorer 4.0</td>
-					<td>Win 95+</td>
-					<td class="center"> 4</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="even gradeC">
-					<td>Trident</td>
-					<td>Internet Explorer 5.0</td>
-					<td>Win 95+</td>
-					<td class="center">5</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="odd gradeA">
-					<td>Trident</td>
-					<td>Internet Explorer 5.5</td>
-					<td>Win 95+</td>
-					<td class="center">5.5</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="even gradeA">
-					<td>Trident</td>
-					<td>Internet Explorer 6</td>
-					<td>Win 98+</td>
-					<td class="center">6</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="odd gradeA">
-					<td>Trident</td>
-					<td>Internet Explorer 7</td>
-					<td>Win XP SP2+</td>
-					<td class="center">7</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="even gradeA">
-					<td>Trident</td>
-					<td>AOL browser (AOL desktop)</td>
-					<td>Win XP</td>
-					<td class="center">6</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeA">
-					<td>Gecko</td>
-					<td>Firefox 1.0</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td class="center">1.7</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeA">
-					<td>Gecko</td>
-					<td>Firefox 1.5</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td class="center">1.8</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeA">
-					<td>Gecko</td>
-					<td>Firefox 2.0</td>
-					<td>Win 98+ / OSX.2+</td>
-					<td class="center">1.8</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeA">
-					<td>Gecko</td>
-					<td>Firefox 3.0</td>
-					<td>Win 2k+ / OSX.3+</td>
-					<td class="center">1.9</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeA">
-					<td>Gecko</td>
-					<td>Camino 1.0</td>
-					<td>OSX.2+</td>
-					<td class="center">1.8</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				
-				<tr class="gradeX">
-					<td>Misc</td>
-					<td>Dillo 0.8</td>
-					<td>Embedded devices</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeX">
-					<td>Misc</td>
-					<td>Links</td>
-					<td>Text only</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeX">
-					<td>Misc</td>
-					<td>Lynx</td>
-					<td>Text only</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeC">
-					<td>Misc</td>
-					<td>IE Mobile</td>
-					<td>Windows Mobile 6</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeC">
-					<td>Misc</td>
-					<td>PSP browser</td>
-					<td>PSP</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-				<tr class="gradeU">
-					<td>Other browsers</td>
-					<td>All others</td>
-					<td>-</td>
-					<td class="center">-</td>
-					<td><a href="">Edit</a> || <a href="">Delete</a></td>
-				</tr>
-			</tbody>
-		</table>
+﻿<?php include 'blocks/header.php'; ?>
+<?php include 'blocks/sidebar.php'; ?>
+<?php include '../classes/admin/product.php'; ?>
+<?php include '../classes/admin/brand.php'; ?>
+<?php include '../classes/admin/category.php'; ?>
 
-       </div>
-    </div>
+<?php
+$product = new product();
+?>
+<div class="grid_10">
+	<div class="box round first grid">
+		<h2>Post List</h2>
+		<div class="block">
+			<table class="data display datatable" id="example">
+				<thead>
+					<tr>
+						<th>STT</th>
+						<th>TÊN GIÀY</th>
+						<th>SIZE</th>
+						<th>ẢNH BÌA</th>
+						<th>GIÁ BÁN</th>
+						<th>THƯƠNG HIỆU</th>
+						<th>NCC</th>
+						<th>DANH MỤC</th>
+						<th>BẢO HÀNH</th>
+						<th>NGÀY CẬP NHẬT</th>
+						<th>TRẠNG THÁI</th>
+						<th>ACTION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					$show_product = $product->show_product();
+					if ($show_product) {
+						$i = 0;
+						while ($result = $show_product->fetch_assoc()) {
+							$i++;
+					?>
+							<tr class="odd gradeX">
+								<td><?php echo $i ?></td>
+								<td><?php echo $result['TenGiay'] ?></td>
+								<td><?php echo $result['Size'] ?></td>
+								<td><img src="../admin/uploads/<?php echo $result['AnhBia'] ?>"></td>
+								<td><?php echo $result['GiaBan'] ?></td>
+								<td><?php echo $result['MaThuongHieu'] ?></td>
+								<td><?php echo $result['MaNCC'] ?></td>
+								<td><?php echo $result['MaLoai'] ?></td>
+								<td><?php echo $result['ThoiGianBaoHanh'] ?></td>
+								<td><?php echo date('d/m/Y', strtotime($result['NgayCapNhat'])); ?></td>
+								<td>
+									<?php
+									if ($result['TrangThai'] == 1) {
+										echo "<span style='color:green'>Active</span>";
+									} else {
+										echo "<span style='color:red'>Inactive</span>";
+									}
+									?>
+								</td>
+								<td><a href="productEdit.php?productid=<?php echo $result['MaGiay'] ?>">Edit</a></td>
+							</tr>
+					<?php
+						}
+					}
+					?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        setupLeftMenu();
-        $('.datatable').dataTable();
+	$(document).ready(function() {
+		setupLeftMenu();
+		$('.datatable').dataTable();
 		setSidebarHeight();
-    });
+	});
 </script>
-<?php include 'inc/footer.php';?>
+<?php include 'blocks/footer.php'; ?>
