@@ -3,7 +3,6 @@
 <?php include '../classes/admin/product.php'; ?>
 <?php include '../classes/admin/brand.php'; ?>
 <?php include '../classes/admin/category.php'; ?>
-
 <?php
 $product = new product();
 ?>
@@ -23,6 +22,7 @@ $product = new product();
 						<th>NCC</th>
 						<th>DANH MỤC</th>
 						<th>BẢO HÀNH</th>
+						<th>SỐ LƯỢNG</th>
 						<th>NGÀY CẬP NHẬT</th>
 						<th>TRẠNG THÁI</th>
 						<th>ACTION</th>
@@ -40,12 +40,13 @@ $product = new product();
 								<td><?php echo $i ?></td>
 								<td><?php echo $result['TenGiay'] ?></td>
 								<td><?php echo $result['Size'] ?></td>
-								<td><img src="../admin/uploads/<?php echo $result['AnhBia'] ?>"></td>
+								<td><img src="../admin/uploads/<?php echo $result['AnhBia'] ?>" width="80"></td>
 								<td><?php echo $result['GiaBan'] ?></td>
-								<td><?php echo $result['MaThuongHieu'] ?></td>
-								<td><?php echo $result['MaNCC'] ?></td>
-								<td><?php echo $result['MaLoai'] ?></td>
-								<td><?php echo $result['ThoiGianBaoHanh'] ?></td>
+								<td><?php echo $result['TenThuongHieu'] ?></td>
+								<td><?php echo $result['TenNCC'] ?></td>
+								<td><?php echo $result['TenLoai'] ?></td>
+								<td><?php echo $result['ThoiGianBaoHanh'] ?> tháng</td>
+								<td><?php echo $result['SoLuongTon'] ?></td>
 								<td><?php echo date('d/m/Y', strtotime($result['NgayCapNhat'])); ?></td>
 								<td>
 									<?php
@@ -67,7 +68,6 @@ $product = new product();
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function() {
 		setupLeftMenu();

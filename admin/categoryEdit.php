@@ -4,7 +4,7 @@
 <?php
 $cat = new category();
 if (!isset($_GET['catid']) || $_GET['catid'] == null) {
-    echo "<script>window.location='catlist.php'</script>";
+    echo "<script>window.location='categoryList.php'</script>";
 } else {
     $id = $_GET['catid'];
 }
