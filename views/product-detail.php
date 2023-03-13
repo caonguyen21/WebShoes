@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php include 'views/blocks/head.php'; ?>
+    <?php include 'blocks/head.php'; ?>
 </head>
 
 <body class="animsition">
 
     <!-- Header -->
     <header class="header-v4">
-        <?php include 'views/blocks/header.php'; ?>
+        <?php include 'blocks/header.php'; ?>
     </header>
 
     <!-- Cart -->
@@ -31,7 +31,7 @@
                 <ul class="header-cart-wrapitem w-full">
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-01.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-01.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -47,7 +47,7 @@
 
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-02.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-02.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -63,7 +63,7 @@
 
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-03.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-03.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -131,34 +131,34 @@
                             <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
                             <div class="slick3 gallery-lb">
-                                <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                                <div class="item-slick3" data-thumb="../public/images/product-detail-01.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                                        <img src="../public/images/product-detail-01.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                            href="images/product-detail-01.jpg">
+                                            href="../public/images/product-detail-01.jpg">
                                             <i class="fa fa-expand"></i>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+                                <div class="item-slick3" data-thumb="../public/images/product-detail-02.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
+                                        <img src="../public/images/product-detail-02.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                            href="images/product-detail-02.jpg">
+                                            href="../public/images/product-detail-02.jpg">
                                             <i class="fa fa-expand"></i>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
+                                <div class="item-slick3" data-thumb="../public/images/product-detail-03.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
+                                        <img src="../public/images/product-detail-03.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                            href="images/product-detail-03.jpg">
+                                            href="../public/images/product-detail-03.jpg">
                                             <i class="fa fa-expand"></i>
                                         </a>
                                     </div>
@@ -379,7 +379,7 @@
                                         <!-- Review -->
                                         <div class="flex-w flex-t p-b-68">
                                             <div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-                                                <img src="images/avatar-01.jpg" alt="AVATAR">
+                                                <img src="../public/images/avatar-01.jpg" alt="AVATAR">
                                             </div>
 
                                             <div class="size-207">
@@ -491,7 +491,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-01.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-01.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -513,10 +513,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-02.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-02.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -549,10 +549,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -563,7 +563,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-03.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-03.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -585,10 +585,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -599,7 +599,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-04.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-04.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -621,10 +621,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -635,7 +635,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-05.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-05.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -657,10 +657,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -671,7 +671,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-06.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-06.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -693,10 +693,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -707,7 +707,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-07.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-07.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -729,10 +729,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -743,7 +743,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="images/product-08.jpg" alt="IMG-PRODUCT">
+                                <img src="../public/images/product-08.jpg" alt="IMG-PRODUCT">
 
                                 <a href="#"
                                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -765,10 +765,10 @@
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
                                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                            alt="ICON">
+                                        <img class="icon-heart1 dis-block trans-04"
+                                            src="../public/images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l"
-                                            src="images/icons/icon-heart-02.png" alt="ICON">
+                                            src="../public/images/icons/icon-heart-02.png" alt="ICON">
                                     </a>
                                 </div>
                             </div>
@@ -897,30 +897,31 @@
             <div class="p-t-40">
                 <div class="flex-c-m flex-w p-b-18">
                     <a href="#" class="m-all-1">
-                        <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+                        <img src="../public/images/icons/icon-pay-01.png" alt="ICON-PAY">
                     </a>
 
                     <a href="#" class="m-all-1">
-                        <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+                        <img src="../public/images/icons/icon-pay-02.png" alt="ICON-PAY">
                     </a>
 
                     <a href="#" class="m-all-1">
-                        <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+                        <img src="../public/images/icons/icon-pay-03.png" alt="ICON-PAY">
                     </a>
 
                     <a href="#" class="m-all-1">
-                        <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+                        <img src="../public/images/icons/icon-pay-04.png" alt="ICON-PAY">
                     </a>
 
                     <a href="#" class="m-all-1">
-                        <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+                        <img src="../public/images/icons/icon-pay-05.png" alt="ICON-PAY">
                     </a>
                 </div>
 
                 <p class="stext-107 cl6 txt-center">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                    document.write(new Date().getFullYear());
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
                     </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
                         href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a
                         href="https://themewagon.com" target="_blank">ThemeWagon</a>
@@ -946,7 +947,7 @@
         <div class="container">
             <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
                 <button class="how-pos3 hov3 trans-04 js-hide-modal1">
-                    <img src="images/icons/icon-close.png" alt="CLOSE">
+                    <img src="../public/images/icons/icon-close.png" alt="CLOSE">
                 </button>
 
                 <div class="row">
@@ -957,34 +958,34 @@
                                 <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
                                 <div class="slick3 gallery-lb">
-                                    <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                                    <div class="item-slick3" data-thumb="../public/images/product-detail-01.jpg">
                                         <div class="wrap-pic-w pos-relative">
-                                            <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                                            <img src="../public/images/product-detail-01.jpg" alt="IMG-PRODUCT">
 
                                             <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                                href="images/product-detail-01.jpg">
+                                                href="../public/images/product-detail-01.jpg">
                                                 <i class="fa fa-expand"></i>
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+                                    <div class="item-slick3" data-thumb="../public/images/product-detail-02.jpg">
                                         <div class="wrap-pic-w pos-relative">
-                                            <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
+                                            <img src="../public/images/product-detail-02.jpg" alt="IMG-PRODUCT">
 
                                             <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                                href="images/product-detail-02.jpg">
+                                                href="../public/images/product-detail-02.jpg">
                                                 <i class="fa fa-expand"></i>
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
+                                    <div class="item-slick3" data-thumb="../public/images/product-detail-03.jpg">
                                         <div class="wrap-pic-w pos-relative">
-                                            <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
+                                            <img src="../public/images/product-detail-03.jpg" alt="IMG-PRODUCT">
 
                                             <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                                href="images/product-detail-03.jpg">
+                                                href="../public/images/product-detail-03.jpg">
                                                 <i class="fa fa-expand"></i>
                                             </a>
                                         </div>
@@ -1105,105 +1106,105 @@
     </div>
 
     <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="../public/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/vendor/bootstrap/js/popper.js"></script>
+    <script src="../public/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../public/vendor/select2/select2.min.js"></script>
     <script>
-    $(".js-select2").each(function() {
-        $(this).select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $(this).next('.dropDownSelect2')
-        });
-    })
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/slick/slick.min.js"></script>
-    <script src="js/slick-custom.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/parallax100/parallax100.js"></script>
-    <script>
-    $('.parallax100').parallax100();
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-    <script>
-    $('.gallery-lb').each(function() { // the containers for all your galleries
-        $(this).magnificPopup({
-            delegate: 'a', // the selector for gallery item
-            type: 'image',
-            gallery: {
-                enabled: true
-            },
-            mainClass: 'mfp-fade'
-        });
-    });
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/isotope/isotope.pkgd.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/sweetalert/sweetalert.min.js"></script>
-    <script>
-    $('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
-        e.preventDefault();
-    });
-
-    $('.js-addwish-b2').each(function() {
-        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-        $(this).on('click', function() {
-            swal(nameProduct, "is added to wishlist !", "success");
-
-            $(this).addClass('js-addedwish-b2');
-            $(this).off('click');
-        });
-    });
-
-    $('.js-addwish-detail').each(function() {
-        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
-        $(this).on('click', function() {
-            swal(nameProduct, "is added to wishlist !", "success");
-
-            $(this).addClass('js-addedwish-detail');
-            $(this).off('click');
-        });
-    });
-
-    /*---------------------------------------------*/
-
-    $('.js-addcart-detail').each(function() {
-        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-        $(this).on('click', function() {
-            swal(nameProduct, "is added to cart !", "success");
-        });
-    });
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script>
-    $('.js-pscroll').each(function() {
-        $(this).css('position', 'relative');
-        $(this).css('overflow', 'hidden');
-        var ps = new PerfectScrollbar(this, {
-            wheelSpeed: 1,
-            scrollingThreshold: 1000,
-            wheelPropagation: false,
-        });
-
-        $(window).on('resize', function() {
-            ps.update();
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
         })
-    });
     </script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <script src="../public/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../public/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/slick/slick.min.js"></script>
+    <script src="../public/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/parallax100/parallax100.js"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script>
+        $('.gallery-lb').each(function () { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function () {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="../public/js/main.js"></script>
 
 </body>
 

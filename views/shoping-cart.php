@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php include 'views/blocks/head.php'; ?>
+    <?php include 'blocks/head.php'; ?>
 </head>
 
 <body class="animsition">
 
     <!-- Header -->
     <header class="header-v4">
-        <?php include 'views/blocks/header.php'; ?>
+        <?php include 'blocks/header.php'; ?>
     </header>
 
     <!-- Cart -->
@@ -31,7 +31,7 @@
                 <ul class="header-cart-wrapitem w-full">
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-01.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-01.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -47,7 +47,7 @@
 
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-02.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-02.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -63,7 +63,7 @@
 
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="images/item-cart-03.jpg" alt="IMG">
+                            <img src="../public/images/item-cart-03.jpg" alt="IMG">
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
@@ -84,12 +84,12 @@
                     </div>
 
                     <div class="header-cart-buttons flex-w w-full">
-                        <a href="shoping-cart.html"
+                        <a href="shoping-cart.php"
                             class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                             View Cart
                         </a>
 
-                        <a href="shoping-cart.html"
+                        <a href="shoping-cart.php"
                             class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                             Check Out
                         </a>
@@ -103,7 +103,7 @@
     <!-- breadcrumb -->
     <div class="container">
         <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-            <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+            <a href="index.php" class="stext-109 cl8 hov-cl1 trans-04">
                 Home
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
@@ -134,7 +134,7 @@
                                 <tr class="table_row">
                                     <td class="column-1">
                                         <div class="how-itemcart1">
-                                            <img src="images/item-cart-04.jpg" alt="IMG">
+                                            <img src="../public/images/item-cart-04.jpg" alt="IMG">
                                         </div>
                                     </td>
                                     <td class="column-2">Fresh Strawberries</td>
@@ -159,7 +159,7 @@
                                 <tr class="table_row">
                                     <td class="column-1">
                                         <div class="how-itemcart1">
-                                            <img src="images/item-cart-05.jpg" alt="IMG">
+                                            <img src="../public/images/item-cart-05.jpg" alt="IMG">
                                         </div>
                                     </td>
                                     <td class="column-2">Lightweight Jacket</td>
@@ -297,7 +297,7 @@
 
 
     <!-- Footer -->
-    <?php include 'views/blocks/footer.php'; ?>
+    <?php include 'blocks/footer.php'; ?>
 
 
     <!-- Back to top -->
@@ -308,43 +308,43 @@
     </div>
 
     <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="../public/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/vendor/bootstrap/js/popper.js"></script>
+    <script src="../public/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../public/vendor/select2/select2.min.js"></script>
     <script>
-    $(".js-select2").each(function() {
-        $(this).select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $(this).next('.dropDownSelect2')
-        });
-    })
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script>
-    $('.js-pscroll').each(function() {
-        $(this).css('position', 'relative');
-        $(this).css('overflow', 'hidden');
-        var ps = new PerfectScrollbar(this, {
-            wheelSpeed: 1,
-            scrollingThreshold: 1000,
-            wheelPropagation: false,
-        });
-
-        $(window).on('resize', function() {
-            ps.update();
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
         })
-    });
     </script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <script src="../public/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../public/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="../public/js/main.js"></script>
 
 </body>
 
