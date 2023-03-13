@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Categories
+                    Thể loại
                 </h4>
 
                 <ul>
@@ -35,7 +35,7 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Help
+                    Trợ giúp
                 </h4>
 
                 <ul>
@@ -59,7 +59,7 @@
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
+                            Liên hệ
                         </a>
                     </li>
                 </ul>
@@ -67,11 +67,13 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
+                    Hỗ trợ ngay
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at Bình Dương
+                    Địa chỉ: 23k/7, Bình Đáng, Bình Hòa, Thuận An, Bình Dương
+                    </br>
+                    Số Điện thoại: (+84)0985797250
                 </p>
 
                 <div class="p-t-27">
@@ -91,19 +93,19 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
+                    Sản phẩm mới
                 </h4>
 
                 <form>
                     <div class="wrap-input1 w-full p-b-4">
                         <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
-                            placeholder="email@example.com">
+                            placeholder="Nhập email để nhận thông tin">
                         <div class="focus-input1 trans-04"></div>
                     </div>
 
                     <div class="p-t-18">
                         <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
+                            Đăng ký
                         </button>
                     </div>
                 </form>

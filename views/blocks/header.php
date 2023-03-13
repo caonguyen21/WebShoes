@@ -1,4 +1,26 @@
 <?php
+require_once '../lib/session.php';
+Session::init();
+?>
+<?php
+require_once '../lib/database.php';
+require_once '../helpers/format.php';
+require_once '../classes/admin/brand.php';
+require_once '../classes/admin/category.php';
+require_once '../classes/admin/nhacungcap.php';
+require_once '../classes/admin/product.php';
+require_once '../classes/cart.php';
+require_once '../classes/user.php';
+
+$db = new Database();
+$fm = new Format();
+$ct = new cart();
+$us = new user();
+$cat = new category();
+$product = new product();
+?>
+
+<?php
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: Tue, 03 Feb 2023 05:00:00 GMT");
@@ -16,11 +38,11 @@ header("Cache-Control: max-age=25292000");
 
             <div class="right-top-bar flex-w h-full">
                 <a href="contact.php" class="flex-c-m trans-04 p-lr-25">
-                    Help & FAQs
+                    Liên Hệ
                 </a>
 
-                <a href="#" class="flex-c-m trans-04 p-lr-25">
-                    My Account
+                <a href="../views/login.php" class="flex-c-m trans-04 p-lr-25">
+                    Tài Khoản
                 </a>
             </div>
         </div>
@@ -89,16 +111,16 @@ header("Cache-Control: max-age=25292000");
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="active-menu">
-                            <a href="index.php">Home</a>
+                            <a href="index.php">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="product.php">Shop</a>
+                            <a href="product.php">Sản phẩm</a>
                         </li>
                         <li>
-                            <a href="about.php">About</a>
+                            <a href="about.php">Giới thiệu</a>
                         </li>
                         <li>
-                            <a href="contact.php">Contact</a>
+                            <a href="contact.php">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
