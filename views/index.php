@@ -137,17 +137,22 @@
         </div>
       </div>
       <div class="row isotope-grid">
-        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-          <!-- Block2 -->
-          <?php
-          $getproductbyTrangThai = $product->getproductbyTrangThai();
-          if ($getproductbyTrangThai) {
-            while ($resul = $getproductbyTrangThai->fetch_assoc()) {
-
-              ?>
+        <?php
+        $getproductbyTrangThai = $product->getproductbyTrangThai();
+        if ($getproductbyTrangThai) {
+          $counter = 0; // initialize counter variable
+          while ($resul = $getproductbyTrangThai->fetch_assoc()) {
+            if ($counter >= 8) { // set desired number of products to display
+              break; // exit the loop when limit is reached
+            } else {
+              $counter++; // increment counter variable
+            }
+            ?>
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+              <!-- Block2 -->
               <div class="block2">
                 <div class="block2-pic hov-img0">
-                  <img src="../public/images/ <?php echo $resul['AnhBia'] ?>" alt="IMG-PRODUCT">
+                  <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>" alt="IMG-PRODUCT">
 
                   <a href="#"
                     class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -175,12 +180,13 @@
                   </div>
                 </div>
               </div>
-              <?php
-            }
+            </div>
+            <?php
           }
-          ?>
-        </div>
+        }
+        ?>
       </div>
+
 
       <!-- Xem Thêm -->
       <div class="flex-c-m flex-w w-full p-t-45">

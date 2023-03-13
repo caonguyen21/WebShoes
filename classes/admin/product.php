@@ -153,5 +153,11 @@ class product
             return  $alert;
         }
     }
+    public function getproductbyTrangThai()
+    {
+        $query = "SELECT * FROM sanpham WHERE TrangThai='1'";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 ?>
