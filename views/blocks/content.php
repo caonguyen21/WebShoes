@@ -4,33 +4,26 @@
             <div class="col-md-7 col-lg-8">
                 <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
                     <h3 class="mtext-111 cl2 p-b-16">
-                        Our Story
+                        Mô Tả
                     </h3>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat consequat enim,
-                        non auctor massa ultrices non. Morbi sed odio massa. Quisque at vehicula tellus, sed
-                        tincidunt augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
-                        ridiculus mus. Maecenas varius egestas diam, eu sodales metus scelerisque congue.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Maecenas gravida justo eu arcu egestas convallis. Nullam eu erat bibendum, tempus
-                        ipsum eget, dictum enim. Donec non neque ut enim dapibus tincidunt vitae nec augue.
-                        Suspendisse potenti. Proin ut est diam. Donec condimentum euismod tortor, eget facilisis
-                        diam faucibus et. Morbi a tempor elit.
+                        Cửa hàng bán giày dép Thảo Nguyên là một địa chỉ tin cậy cho những người yêu thích giày dép và
+                        muốn tìm kiếm những sản phẩm chất lượng cao với giá cả hợp lý. Với hơn 10 năm kinh nghiệm trong
+                        lĩnh vực bán hàng, cửa hàng đã trở thành một trong những điểm đến hàng đầu cho các tín đồ thời
+                        trang tại Việt Nam.
                     </p>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna.
-                        Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque
-                        congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu
-                        sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend
-                        elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit
-                        convallis ipsum, et maximus enim ligula ac ligula.
+                        Tại Thảo Nguyên, bạn có thể tìm thấy nhiều loại giày dép đa dạng, từ những đôi sneakers thời
+                        trang, đến những đôi boots bền chắc. Với sự đa dạng về mẫu mã, kiểu dáng, màu sắc và chất liệu,
+                        cửa hàng luôn đáp ứng nhu cầu và sở thích của khách hàng.
                     </p>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call
-                        us on (+1) 96 716 6879
+                        Bất kỳ câu hỏi? Hãy cho chúng tôi biết tại cửa hàng ở 23K/7-KDC434-Bình Hòa-Thuận An-Bình Dương
+                        hoặc gọi
+                        chúng tôi trên (+84) 0985797250
                     </p>
                 </div>
             </div>
@@ -48,30 +41,25 @@
             <div class="order-md-2 col-md-7 col-lg-8 p-b-30">
                 <div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
                     <h3 class="mtext-111 cl2 p-b-16">
-                        Our Mission
+                        Mục Tiêu
                     </h3>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed
-                        consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                        ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida.
-                        Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac
-                        velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in,
-                        porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque
-                        tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris
-                        auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget
-                        elementum libero iaculis.
+                        Cửa hàng bán giày dép Thảo Nguyên là một địa chỉ tin cậy cho những người yêu thích giày dép và
+                        muốn tìm kiếm những sản phẩm chất lượng cao với giá cả hợp lý. Với hơn 10 năm kinh nghiệm trong
+                        lĩnh vực bán hàng, cửa hàng đã trở thành một trong những điểm đến hàng đầu cho các tín đồ thời
+                        trang tại Việt Nam.
                     </p>
 
                     <div class="bor16 p-l-29 p-b-9 m-t-22">
                         <p class="stext-114 cl6 p-r-40 p-b-11">
-                            Creativity is just connecting things. When you ask creative people how they did
-                            something, they feel a little guilty because they didn't really do it, they just saw
-                            something. It seemed obvious to them after a while.
+                            Cuối cùng, mục tiêu của cửa hàng Thảo Nguyên là tiếp tục phát triển và mở rộng thị trường
+                            của mình, trở thành một trong những địa chỉ bán giày dép hàng đầu tại Việt Nam và có thể
+                            phục vụ được nhiều khách hàng ở các vùng miền khác nhau.
                         </p>
 
                         <span class="stext-111 cl8">
-                            - Steve Job’s
+                            - Thảo Nguyên
                         </span>
                     </div>
                 </div>

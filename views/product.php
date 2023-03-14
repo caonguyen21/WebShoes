@@ -111,7 +111,7 @@
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
                         Women
                     </button>
-                    
+
                 </div>
 
                 <div class="flex-w flex-c-m m-tb-10">
@@ -227,8 +227,8 @@
                                 <div class="block2-pic hov-img0">
                                     <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>" alt="IMG-PRODUCT">
 
-                                    <a href="#"
-                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                    <a href="product-detail.php?proID=<?php echo $resul['MaGiay'] ?>"
+                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                         Xem Thêm
                                     </a>
                                 </div>
