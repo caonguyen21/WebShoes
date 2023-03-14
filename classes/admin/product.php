@@ -42,10 +42,10 @@ class product
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
-                return  $alert;
+                return $alert;
             } else {
                 $alert = "<span class='error'> Thêm dữ liệu thất bại </span>";
-                return  $alert;
+                return $alert;
             }
         }
     }
@@ -89,7 +89,7 @@ class product
         $unique_image = substr(md5(time()), 0.10) . '.' . $file_ext;
         $uploaded_image = "uploads/" . $unique_image;
 
-        if ($TenGiay == "" || $loaigiay == "" || $thuonghieu == "" || $nhacungcap == "" || $GiaBan == "" || $Size == "" || $BaoHanh == "" || $GiaBan == "" || $SL == ""  || $Size == "") {
+        if ($TenGiay == "" || $loaigiay == "" || $thuonghieu == "" || $nhacungcap == "" || $GiaBan == "" || $Size == "" || $BaoHanh == "" || $GiaBan == "" || $SL == "" || $Size == "") {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
         } else {
@@ -147,15 +147,31 @@ class product
         $result = $this->db->update($query);
         if ($result) {
             $alert = "<span class='success'> Cập nhật dữ liệu sản phẩm  thành công </span>";
-            return  $alert;
+            return $alert;
         } else {
             $alert = "<span class='error'> Cập nhật dữ liệu sản phẩm thất bại </span>";
-            return  $alert;
+            return $alert;
         }
     }
-    public function getproductbyTrangThai()
+    public function getproduct_trangthai()
     {
-        $query = "SELECT * FROM sanpham WHERE TrangThai='1'";
+        $query = "SELECT * FROM sanpham WHERE TrangThai='1' LIMIT 8";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getproduct_new()
+    {
+        $query = "SELECT * FROM sanpham order by MaGiay desc LIMIT 5";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_details($id)
+    {
+        $query = "SELECT sanpham.* , loaigiay.TenLoai , thuonghieu.TenThuongHieu , nhacungcap.TenNCC
+        FROM sanpham 
+        INNER JOIN loaigiay ON sanpham.MaLoai = loaigiay.MaLoai 
+        INNER JOIN thuonghieu ON sanpham.MaThuongHieu = thuonghieu.MaThuongHieu
+        INNER JOIN nhacungcap ON sanpham.MaNCC = nhacungcap.MaNCC where sanpham.MaGiay = '$id'";
         $result = $this->db->select($query);
         return $result;
     }

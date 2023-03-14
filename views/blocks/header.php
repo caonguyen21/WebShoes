@@ -99,7 +99,7 @@ header("Cache-Control: max-age=25292000");
                     <ul>
                         <li>
                             <div class="logo-holder logo-1">
-                                <a href="">
+                                <a href="index.php">
                                     <h3 style=" margin: 0px; padding: 0px;">Thảo Nguyên</h3>
                                     <p style=" margin: 0px; padding: 0px;">Shop Giày</p>
                                 </a>
