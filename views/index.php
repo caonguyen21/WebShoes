@@ -162,7 +162,7 @@
                     </a>
 
                     <span class="stext-105 cl3">
-                      <?php echo $resul['GiaBan'], " ", "VND" ?>
+                      <?php echo $fm->currency_format($resul['GiaBan'])?>
                     </span>
                   </div>
 
