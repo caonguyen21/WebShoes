@@ -50,96 +50,44 @@ header("Cache-Control: max-age=25292000");
 
     <div class="wrap-menu-desktop">
         <nav class="limiter-menu-desktop container">
-
             <!-- Logo desktop -->
-            <style>
-                .logo-container ul {
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                    display: inline-block;
-                }
+            <a href="index.php" class="logo">
+                <img src="../public/images/icons/logo-01.png" alt="IMG-LOGO">
+            </a>
 
-                .logo-container ul li {
-                    width: 182px;
-                    height: 41px;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .logo-container ul li a {
-                    text-decoration: none !important;
-                    display: inline-block;
-                }
-
-                .logo-holder {
-                    text-align: center;
-                }
-
-                /* Logo-1 */
-                .logo-1 h3 {
-                    color: black;
-                    font-family: 'Oswald', sans-serif;
-                    font-weight: 700;
-                    font-size: 24px;
-                    line-height: 1.3;
-                }
-
-                .logo-1 p {
-                    font-size: 9px;
-                    letter-spacing: 8px;
-                    text-transform: uppercase;
-                    padding-left: 10px;
-                    color: #34495e;
-                    font-weight: 600;
-                }
-            </style>
-            <div class="logo">
-                <div class="logo-container">
-                    <ul>
-                        <li>
-                            <div class="logo-holder logo-1">
-                                <a href="index.php">
-                                    <h3 style=" margin: 0px; padding: 0px;">Thảo Nguyên</h3>
-                                    <p style=" margin: 0px; padding: 0px;">Shop Giày</p>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- Menu desktop -->
+            <div class="menu-desktop">
+                <ul class="main-menu">
+                    <li>
+                        <a href="index.php">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="product.php">Sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="about.php">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="contact.php">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Icon header -->
+            <div class="wrap-icon-header flex-w flex-r-m">
+                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                    <i class="zmdi zmdi-search"></i>
                 </div>
-                <!-- Menu desktop -->
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-                        <li>
-                            <a href="index.php">Trang chủ</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="about.php">Giới thiệu</a>
-                        </li>
-                        <li>
-                            <a href="contact.php">Liên hệ</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Icon header -->
-                <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
-                    <a href="shoping-cart.php"
-                        class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                        data-notify="2">
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                    </a>
+                <a href="shoping-cart.php"
+                    class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="2">
+                    <i class="zmdi zmdi-shopping-cart"></i>
+                </a>
 
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                        data-notify="0">
-                        <i class="zmdi zmdi-favorite-outline"></i>
-                    </a>
-                </div>
+                <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="0">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+            </div>
         </nav>
     </div>
 </div>
