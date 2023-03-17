@@ -36,4 +36,7 @@ class Format
         }
         return $title = ucfirst($title);
     }
+    public function format_currency()
+    {
+    }
 }

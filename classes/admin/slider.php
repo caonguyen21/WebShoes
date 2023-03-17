@@ -33,7 +33,7 @@ class slider
     }
     public function show_slider()
     {
-        $query = "SELECT slider.* , sanpham.TenGiay , sanpham.AnhBia FROM slider 
+        $query = "SELECT slider.* , sanpham.TenGiay , sanpham.AnhBia ,sanpham.GiaBan FROM slider 
         INNER JOIN sanpham ON sanpham.MaGiay = slider.MaGiay 
         ORDER BY slider.sliderID DESC";
         $result = $this->db->select($query);
