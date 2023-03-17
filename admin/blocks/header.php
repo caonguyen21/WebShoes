@@ -1,8 +1,8 @@
 <?php
-  header("Cache-Control: no-cache, must-revalidate");
-  header("Pragma: no-cache"); 
-  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
-  header("Cache-Control: max-age=2592000");
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+header("Cache-Control: max-age=2592000");
 ?>
 <?php
 include '../lib/session.php';
@@ -60,9 +60,9 @@ Session::checkSession();
           <div class="floatleft marginleft10">
             <ul class="inline-ul floatleft">
               <li>Xin chào <?php echo Session::get('adminName') ?></li>
-              <?php if(isset($_GET['action'])&&$_GET['action']=='logout'){
+              <?php if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 Session::destroy();
-              }?>
+              } ?>
               <li><a href="?action=logout">Logout</a></li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ Session::checkSession();
         <li class="ic-form-style"><a href=""><span>Admin Profile</span></a></li>
         <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
         <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
-        <li class="ic-charts"><a href=""><span>Visit Website</span></a></li>
+        <li class="ic-charts"><a href="/webshoes/views/"><span>Visit Website</span></a></li>
       </ul>
     </div>
     <div class="clear">

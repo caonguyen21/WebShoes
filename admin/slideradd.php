@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>THÊM SẢN PHẨM</h2>
+        <h2>THÊM SLIDER</h2>
         <div class="block">
             <?php
             if (isset($insert)) {
@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                             <select id="select" name="productID" style="width: 500px;">
                                 <option>Select sản phẩm</option>
                                 <?php
-                                $prodcut = new product();
-                                $list = $prodcut->show_product();
+                                $product = new product();
+                                $list = $product->show_product();
                                 if ($list) {
                                     $productArray = array();
                                     while ($result = $list->fetch_assoc()) {
@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                                 ?>
                                         <option value="<?php echo $result['MaGiay'] ?>"><?php echo $result['TenGiay'] ?></option>
                                 <?php
-                                    } // end while
-                                } // end if
+                                    }
+                                }
                                 $productJSON = json_encode($productArray);
                                 ?>
                             </select>
@@ -49,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                     </tr>
                     <tr>
                         <td>
-                            <!-- <label>Ảnh</label> -->
                         </td>
                         <td>
                             <img id="selectedImg" src="" width="250">

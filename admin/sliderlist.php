@@ -47,11 +47,9 @@ $slider = new slider();
 					?>
 				</tbody>
 			</table>
-
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function() {
 		setupLeftMenu();
