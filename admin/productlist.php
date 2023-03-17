@@ -1,14 +1,12 @@
 ﻿<?php include 'blocks/header.php'; ?>
 <?php include 'blocks/sidebar.php'; ?>
 <?php include '../classes/admin/product.php'; ?>
-<?php include '../classes/admin/brand.php'; ?>
-<?php include '../classes/admin/category.php'; ?>
 <?php
 $product = new product();
 ?>
 <div class="grid_10">
 	<div class="box round first grid">
-		<h2>Post List</h2>
+		<h2>DANH SÁCH SẢN PHẨM</h2>
 		<div class="block">
 			<table class="data display datatable" id="example">
 				<thead>

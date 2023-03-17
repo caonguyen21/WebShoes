@@ -1,44 +1,89 @@
-<?php include 'inc/header.php';?>
-<?php include 'inc/sidebar.php';?>
+<?php include '../admin/blocks/header.php'; ?>
+<?php include '../admin/blocks/sidebar.php'; ?>
+<?php include '../classes/admin/product.php'; ?>
+<?php include '../classes/admin/slider.php'; ?>
+<?php
+$slider = new slider();
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    $productID = $_POST['productID'];
+    $insert = $slider->insert($productID);
+}
+?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Add New Slider</h2>
-    <div class="block">               
-         <form action="addslider.php" method="post" enctype="multipart/form-data">
-            <table class="form">     
-                <tr>
-                    <td>
-                        <label>Title</label>
-                    </td>
-                    <td>
-                        <input type="text" name="title" placeholder="Enter Slider Title..." class="medium" />
-                    </td>
-                </tr>           
-    
-                <tr>
-                    <td>
-                        <label>Upload Image</label>
-                    </td>
-                    <td>
-                        <input type="file" name="image"/>
-                    </td>
-                </tr>
-               
-				<tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" name="submit" Value="Save" />
-                    </td>
-                </tr>
-            </table>
+        <h2>THÊM SẢN PHẨM</h2>
+        <div class="block">
+            <?php
+            if (isset($insert)) {
+                echo $insert;
+            }
+            ?>
+            <form action="sliderAdd.php" method="post">
+                <table class="form">
+                    <tr>
+                        <td>
+                            <label>Sản phẩm</label>
+                        </td>
+                        <td>
+                            <select id="select" name="productID" style="width: 500px;">
+                                <option>Select sản phẩm</option>
+                                <?php
+                                $prodcut = new product();
+                                $list = $prodcut->show_product();
+                                if ($list) {
+                                    $productArray = array();
+                                    while ($result = $list->fetch_assoc()) {
+                                        $productArray[$result['MaGiay']] = array(
+                                            'TenGiay' => $result['TenGiay'],
+                                            'AnhBia' => $result['AnhBia']
+                                        );
+                                ?>
+                                        <option value="<?php echo $result['MaGiay'] ?>"><?php echo $result['TenGiay'] ?></option>
+                                <?php
+                                    } // end while
+                                } // end if
+                                $productJSON = json_encode($productArray);
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- <label>Ảnh</label> -->
+                        </td>
+                        <td>
+                            <img id="selectedImg" src="" width="250">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="submit" Value="Create" />
+                        </td>
+                    </tr>
+                </table>
             </form>
+
+            <script>
+                var productJSON = JSON.parse('<?php echo $productJSON; ?>');
+                var imgTag = document.getElementById('selectedImg');
+                var selectElm = document.getElementById('select');
+                selectElm.addEventListener('change', function() {
+                    var selectedValue = selectElm.value;
+                    if (productJSON[selectedValue]) {
+                        imgTag.src = "../admin/uploads/" + productJSON[selectedValue].AnhBia;
+                    } else {
+                        imgTag.src = "";
+                    }
+                });
+            </script>
+
         </div>
     </div>
 </div>
 <!-- Load TinyMCE -->
 <script src="js/tiny-mce/jquery.tinymce.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         setupTinyMCE();
         setDatePicker('date-picker');
         $('input[type="checkbox"]').fancybutton();
@@ -46,4 +91,4 @@
     });
 </script>
 <!-- Load TinyMCE -->
-<?php include 'inc/footer.php';?>
+<?php include '../admin/blocks/footer.php'; ?>

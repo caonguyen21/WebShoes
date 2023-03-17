@@ -1,41 +1,62 @@
-<?php include 'inc/header.php';?>
-<?php include 'inc/sidebar.php';?>
+<?php include 'blocks/header.php'; ?>
+<?php include 'blocks/sidebar.php'; ?>
+<?php include '../classes/admin/slider.php'; ?>
+<?php
+$slider = new slider();
+?>
 <div class="grid_10">
-    <div class="box round first grid">
-        <h2>Slider List</h2>
-        <div class="block">  
-            <table class="data display datatable" id="example">
-			<thead>
-				<tr>
-					<th>No.</th>
-					<th>Slider Title</th>
-					<th>Slider Image</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
+	<div class="box round first grid">
+		<h2>Slider List</h2>
+		<div class="block">
+			<table class="data display datatable" id="example">
+				<thead>
+					<tr>
+						<th>STT</th>
+						<th>SẢN PHẨM</th>
+						<th>ẢNH BÌA</th>
+						<th>TRẠNG THÁI</th>
+						<th>ACTION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					$show_slider = $slider->show_slider();
+					if ($show_slider) {
+						$i = 0;
+						while ($result = $show_slider->fetch_assoc()) {
+							$i++;
+					?>
+							<tr class="odd gradeX">
+								<td><?php echo $i ?></td>
+								<td><?php echo $result['TenGiay'] ?></td>
+								<td><img src="../admin/uploads/<?php echo $result['AnhBia'] ?>" width="80"></td>
+								<td>
+									<?php
+									if ($result['TrangThai'] == 1) {
+										echo "<span style='color:green'>Active</span>";
+									} else {
+										echo "<span style='color:red'>Inactive</span>";
+									}
+									?>
+								</td>
+								<td><a href="sliderEdit.php?sliderid=<?php echo $result['sliderID'] ?>">Edit</a></td>
+							</tr>
+					<?php
+						}
+					}
+					?>
+				</tbody>
+			</table>
 
-				<tr class="odd gradeX">
-					<td>01</td>
-					<td>Title of Slider</td>
-					<td><img src="" height="40px" width="60px"/></td>				
-				<td>
-					<a href="">Edit</a> || 
-					<a onclick="return confirm('Are you sure to Delete!');" >Delete</a> 
-				</td>
-					</tr>	
-			</tbody>
-		</table>
-
-       </div>
-    </div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        setupLeftMenu();
-        $('.datatable').dataTable();
+	$(document).ready(function() {
+		setupLeftMenu();
+		$('.datatable').dataTable();
 		setSidebarHeight();
-    });
+	});
 </script>
-<?php include 'inc/footer.php';?>
+<?php include 'blocks/footer.php'; ?>

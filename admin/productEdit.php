@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Sửa sản phẩm</h2>
+        <h2>SỬA SẢN PHẨM</h2>
         <div class="block">
             <?php
             if (isset($updateProduct)) {
