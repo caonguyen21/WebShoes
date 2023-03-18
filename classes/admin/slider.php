@@ -24,10 +24,10 @@ class slider
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
-                return  $alert;
+                return $alert;
             } else {
                 $alert = "<span class='error'> Thêm dữ liệu thất bại </span>";
-                return  $alert;
+                return $alert;
             }
         }
     }
@@ -43,10 +43,10 @@ class slider
             $result = $this->db->update($query);
             if ($result) {
                 $alert = "<span class='success'> Thay đổi sldier thành công </span>";
-                return  $alert;
+                return $alert;
             } else {
                 $alert = "<span class='error'>  Thay đổi slider thất bại </span>";
-                return  $alert;
+                return $alert;
             }
         }
         $query = "SELECT * FROM loaigiay WHERE MaLoai='$id'";

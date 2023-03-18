@@ -161,7 +161,7 @@ class product
     }
     public function getproduct_new()
     {
-        $query = "SELECT * FROM sanpham order by MaGiay desc LIMIT 5";
+        $query = "SELECT * FROM sanpham order by MaGiay desc ";
         $result = $this->db->select($query);
         return $result;
     }

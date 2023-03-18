@@ -5,12 +5,18 @@
     <?php include 'blocks/head.php'; ?>
 </head>
 
+
 <body class="animsition">
 
     <!-- Header -->
     <header class="header-v4">
         <?php include 'blocks/header.php'; ?>
     </header>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+        $insertCustomer = $cs->insert_customer($_POST);
+    }
+    ?>
     <!-- Title page -->
     <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../public/images/bg-01.jpg');">
         <h2 class="ltext-105 cl0 txt-center">
@@ -18,23 +24,48 @@
         </h2>
     </section>
     <!-- Login -->
+
     <div class="container">
-        <h1>Đăng nhập</h1>
-        <p>Nhập tài khoản mật khẩu để đăng nhập.</p>
+        <h1>Đăng ký</h1>
+        <p>Nhập đầy đủ thông tin để đăng ký tài khoản.</p>
         <hr>
+        <?php
+        if (isset($insertCustomer)) {
+            echo $insertCustomer;
+        }
+        ?>
+        <form action="" method="POST">
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Nhập Email" name="email" id="email" required>
+            <label for="tentk"><b>Tên tài khoản</b></label>
+            <input type="text" placeholder="Nhập tên tài khoản" name="tentk" id="tentk" required>
 
-        <label for="psw"><b>Mật khẩu</b></label>
-        <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" required>
-        <hr>
+            <label for="psw"><b>Mật khẩu</b></label>
+            <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" required>
 
-        <button type="submit" class="registerbtn">Đăng nhập</button>
+            <label for="pswrepeat"><b>Nhập lại mật khẩu</b></label>
+            <input type="password" placeholder="Nhập lại mật khẩu" name="pswrepeat" id="pswrepeat" required>
+
+            <label for="hoten"><b>Họ tên</b></label>
+            <input type="text" placeholder="Nhập họ tên" name="hoten" id="hoten" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Nhập Email" name="email" id="email" required>
+
+            <label for="diachi"><b>Địa chỉ</b></label>
+            <input type="text" placeholder="Nhập địa chỉ" name="diachi" id="diachi" required>
+
+            <label for="sdt"><b>Số điện thoại</b></label>
+            <input type="tel" placeholder="Nhập số điện thoại" name="sdt" id="sdt" required>
+
+            <label for="ngaysinh"><b>Chọn ngày sinh</b></label>
+            <input type="datetime-local" name="ngaysinh" id="ngaysinh" required>
+            <hr>
+            <button type="submit" name="submit" class="registerbtn">Đăng ký</button>
+        </form>
     </div>
 
     <div class="container signin">
-        <p>Chưa có tài khoản đăng nhập? <a href="register.php">Đăng ký</a>.</p>
+        <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a>.</p>
     </div>
     <!-- Footer -->
     <?php include 'blocks/footer.php'; ?>
@@ -100,8 +131,12 @@
     }
 
     /* Full-width input fields */
+
     input[type=text],
-    input[type=password] {
+    input[type=password],
+    input[type=email],
+    input[type=datetime-local],
+    input[type=tel] {
         width: 100%;
         padding: 15px;
         margin: 5px 0 22px 0;
@@ -111,7 +146,10 @@
     }
 
     input[type=text]:focus,
-    input[type=password]:focus {
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=datetime-local]:focus,
+    input[type=tel]:focus {
         background-color: #ddd;
         outline: none;
     }

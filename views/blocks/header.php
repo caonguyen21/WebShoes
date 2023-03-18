@@ -11,12 +11,14 @@ require_once '../classes/admin/nhacungcap.php';
 require_once '../classes/admin/product.php';
 require_once '../classes/cart.php';
 require_once '../classes/user.php';
+require_once '../classes/customer.php';
 
 $db = new Database();
 $fm = new Format();
 $ct = new cart();
 $us = new user();
 $cat = new category();
+$cs = new customer();
 $product = new product();
 ?>
 

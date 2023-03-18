@@ -14,10 +14,11 @@ $slider = new slider();
                 while ($result = $show_slider->fetch_assoc()) {
                     if ($result['TrangThai'] == 1) {
                         $i++;
-            ?>
-                        <div class="item-slick1" style="background-image: url(../admin/uploads/<?php echo $result['AnhBia'] ?>); background-size: auto;background-position-x: 70%;">
+                        ?>
+                        <div class="item-slick1"
+                            style="background-image: url(../admin/uploads/<?php echo $result['AnhBia'] ?>); background-size: auto;background-position-x: 70%;">
                             <div class="container h-full">
-                                <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5" style="margin-left: 250px;">
+                                <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
                                     <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
                                         <span class="ltext-101 cl2 respon2">
                                             <?php echo $result['TenGiay'] ?>
@@ -32,14 +33,15 @@ $slider = new slider();
                                     </div>
 
                                     <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                                        <a href="product-detail.php?proID=<?php echo $result['MaGiay'] ?>" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                        <a href="product-detail.php?proID=<?php echo $result['MaGiay'] ?>"
+                                            class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
                                             Mua Ngay
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-            <?php
+                        <?php
                     }
                 }
             }
