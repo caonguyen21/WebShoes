@@ -64,7 +64,7 @@ class customer
                 Session::set('customer_login', true);
                 Session::set('customer_id', $value['MaKH']);
                 Session::set('customer_name', $value['TaiKhoanKH']);
-                header('Location:index.php');
+                header('Location:shoping-cart.php');
             } else {
                 $alert = "<span class='error'> Email hoặc mật khẩu không đúng! Vui lòng nhập lại! </span>";
                 return $alert;

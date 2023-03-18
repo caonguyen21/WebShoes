@@ -33,7 +33,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-3 p-b-50" style="margin-left: auto;">
                 <h4 class="stext-301 cl0 p-b-30">
                     Thông Tin
                 </h4>

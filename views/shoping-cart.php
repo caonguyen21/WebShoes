@@ -4,6 +4,7 @@
 <head>
     <?php include 'blocks/head.php'; ?>
 </head>
+
 <?php
 include '../lib/session.php';
 Session::checkSessionUser();
@@ -19,7 +20,7 @@ Session::checkSessionUser();
     <?php
     $login_check = Session::get('customer_login');
     if ($login_check == false) {
-        header('Location:shoping-cart.php');
+        header('Location:login.php');
     }
     ?>
 
@@ -36,8 +37,6 @@ Session::checkSessionUser();
             </span>
         </div>
     </div>
-
-
     <!-- Shoping Cart -->
     <form class="bg0 p-t-75 p-b-85">
         <div class="container">

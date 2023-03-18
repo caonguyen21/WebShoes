@@ -58,7 +58,7 @@ class Session
         self::init();
         if (self::get("customer_login") == true) {
             self::destroy();
-            header("Location:index.php");
+            header("Location:shoping-cart.php");
         }
     }
 
