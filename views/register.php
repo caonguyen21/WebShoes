@@ -26,6 +26,7 @@
     <!-- Login -->
 
     <div class="container">
+        <br>
         <h1>Đăng ký</h1>
         <p>Nhập đầy đủ thông tin để đăng ký tài khoản.</p>
         <hr>
@@ -34,6 +35,7 @@
             echo $insertCustomer;
         }
         ?>
+        <br>
         <form action="" method="POST">
 
             <label for="tentk"><b>Tên tài khoản</b></label>
@@ -67,6 +69,7 @@
     <div class="container signin">
         <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a>.</p>
     </div>
+    <br>
     <!-- Footer -->
     <?php include 'blocks/footer.php'; ?>
 
@@ -123,11 +126,6 @@
 <style>
     * {
         box-sizing: border-box
-    }
-
-    /* Add padding to containers */
-    .container {
-        padding: 16px;
     }
 
     /* Full-width input fields */

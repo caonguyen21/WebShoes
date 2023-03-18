@@ -45,6 +45,22 @@ class Session
             header("Location:index.php");
         }
     }
+    public static function checkSessionUser()
+    {
+        self::init();
+        if (self::get("customer_login") == false) {
+            self::destroy();
+            header("Location:login.php");
+        }
+    }
+    public static function checkLoginUser()
+    {
+        self::init();
+        if (self::get("customer_login") == true) {
+            self::destroy();
+            header("Location:index.php");
+        }
+    }
 
     public static function destroy()
     {

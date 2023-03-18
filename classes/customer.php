@@ -17,8 +17,8 @@ class customer
     public function insert_customer($data)
     {
         $TaiKhoanKH = mysqli_real_escape_string($this->db->link, $data['tentk']);
-        $MatKhau = mysqli_real_escape_string($this->db->link, $data['psw']);
-        $pswrepeat = mysqli_real_escape_string($this->db->link, $data['pswrepeat']);
+        $MatKhau = mysqli_real_escape_string($this->db->link, md5($data['psw']));
+        $pswrepeat = mysqli_real_escape_string($this->db->link, md5($data['pswrepeat']));
         $HoTen = mysqli_real_escape_string($this->db->link, $data['hoten']);
         $EmailKH = mysqli_real_escape_string($this->db->link, $data['email']);
         $DiaChiKH = mysqli_real_escape_string($this->db->link, $data['diachi']);
@@ -40,11 +40,34 @@ class customer
                 $result = $this->db->insert($query);
                 if ($result) {
                     $alert = "<span class='success'> Đăng ký tài khoản thành công </span>";
-                    return $alert;
+                    header("Location:index.php");
                 } else {
                     $alert = "<span class='error'> Đăng ký tài khoản thất bại </span>";
                     return $alert;
                 }
+            }
+        }
+    }
+    public function login_customer($data)
+    {
+        $EmailKH = mysqli_real_escape_string($this->db->link, $data['email']);
+        $MatKhau = mysqli_real_escape_string($this->db->link, md5($data['psw']));
+        if ($EmailKH == "" || $MatKhau == "") {
+            $alert = "<span class='error'> Không được bỏ trống </span>";
+            return $alert;
+
+        } else {
+            $check_login = "SELECT * FROM khachhang WHERE  EmailKH ='$EmailKH' AND  MatKhau = '$MatKhau'LIMIT 1";
+            $result_check = $this->db->select($check_login);
+            if ($result_check != false) {
+                $value = $result_check->fetch_assoc();
+                Session::set('customer_login', true);
+                Session::set('customer_id', $value['MaKH']);
+                Session::set('customer_name', $value['TaiKhoanKH']);
+                header('Location:index.php');
+            } else {
+                $alert = "<span class='error'> Email hoặc mật khẩu không đúng! Vui lòng nhập lại! </span>";
+                return $alert;
             }
         }
     }

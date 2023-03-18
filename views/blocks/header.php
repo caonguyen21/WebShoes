@@ -2,6 +2,7 @@
 require_once '../lib/session.php';
 Session::init();
 ?>
+
 <?php
 require_once '../lib/database.php';
 require_once '../helpers/format.php';
@@ -35,17 +36,30 @@ header("Cache-Control: max-age=25292000");
     <div class="top-bar">
         <div class="content-topbar flex-sb-m h-full container">
             <div class="left-top-bar">
-                Shop giày độc lạ Bình Dương
+                Shop Giày Độc Lạ Bình Dương
             </div>
 
             <div class="right-top-bar flex-w h-full">
                 <a href="contact.php" class="flex-c-m trans-04 p-lr-25">
                     Liên Hệ
                 </a>
+                <?php
+                if (isset($_GET['customer_id'])) {
+                    Session::destroy();
+                }
+                ?>
 
-                <a href="../views/login.php" class="flex-c-m trans-04 p-lr-25">
-                    Tài Khoản
-                </a>
+                <?php
+
+                $login_check = Session::get('customer_login');
+                if ($login_check == false) {
+                    echo '<a href="../views/login.php" class="flex-c-m trans-04 p-lr-25"> Tài Khoản</a>';
+                } else {
+                    echo '<a href="#" class="flex-c-m trans-04 p-lr-25">Xin Chào' . " " . Session::get('customer_name') . ' </a>' .
+                        '<a href="?customer_id=' . Session::get('customer_id') . '" class="flex-c-m trans-04 p-lr-25">Đăng Xuất</a>';
+                }
+                ?>
+
             </div>
         </div>
     </div>

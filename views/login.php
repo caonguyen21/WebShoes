@@ -11,6 +11,20 @@
     <header class="header-v4">
         <?php include 'blocks/header.php'; ?>
     </header>
+
+
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $login_Customer = $cs->login_customer($_POST);
+    }
+    ?>
+    <?php
+    $login_check = Session::get('customer_login');
+    if ($login_check) {
+        header('Location:shoping-cart.php');
+    }
+    ?>
     <!-- Title page -->
     <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../public/images/bg-01.jpg');">
         <h2 class="ltext-105 cl0 txt-center">
@@ -19,23 +33,32 @@
     </section>
     <!-- Login -->
     <div class="container">
+        <br>
         <h1>Đăng nhập</h1>
         <p>Nhập tài khoản mật khẩu để đăng nhập.</p>
         <hr>
+        <?php
+        if (isset($login_Customer)) {
+            echo $login_Customer;
+        }
+        ?>
+        <br>
+        <form action="" method="POST">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Nhập Email" name="email" id="email" required>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Nhập Email" name="email" id="email" required>
+            <label for="psw"><b>Mật khẩu</b></label>
+            <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" required>
+            <hr>
 
-        <label for="psw"><b>Mật khẩu</b></label>
-        <input type="password" placeholder="Nhập mật khẩu" name="psw" id="psw" required>
-        <hr>
-
-        <button type="submit" class="registerbtn">Đăng nhập</button>
+            <button type="submit" name="login" class="registerbtn">Đăng nhập</button>
+        </form>
     </div>
 
     <div class="container signin">
         <p>Chưa có tài khoản đăng nhập? <a href="register.php">Đăng ký</a>.</p>
     </div>
+    <br>
     <!-- Footer -->
     <?php include 'blocks/footer.php'; ?>
 
@@ -92,11 +115,6 @@
 <style>
     * {
         box-sizing: border-box
-    }
-
-    /* Add padding to containers */
-    .container {
-        padding: 16px;
     }
 
     /* Full-width input fields */
