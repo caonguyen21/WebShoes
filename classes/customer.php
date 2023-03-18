@@ -71,5 +71,26 @@ class customer
             }
         }
     }
+    public function insert_ykien($data)
+    {
+        $Email = mysqli_real_escape_string($this->db->link, $data['email']);
+        $NoiDung = mysqli_real_escape_string($this->db->link, $data['mes']);
+        $NgayGui = date('Y-m-d H:i:s');
+        if ($Email == "" || $NoiDung == "") {
+            $alert = "<span class='error'> Không được bỏ trống </span>";
+            return $alert;
+        } else {
+            $query = "INSERT INTO ykienkhachhang(Email,NoiDung,NgayGui) VALUES ('$Email','$NoiDung','$NgayGui')";
+            $result = $this->db->insert($query);
+            if ($result) {
+                $alert = "<span class='success'> Cảm ơn bạn đã đóng góp ý kiến <3 </span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'> Error </span>";
+                return $alert;
+            }
+        }
+    }
+
 }
 ?>

@@ -10,7 +10,11 @@
   <header class="header-v4">
     <?php include 'blocks/header.php'; ?>
   </header>
-
+  <?php
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    $insertYkien = $cs->insert_ykien($_POST);
+  }
+  ?>
   <!-- Title page -->
   <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../public/images/bg-01.jpg');">
     <h2 class="ltext-105 cl0 txt-center">
@@ -22,11 +26,18 @@
     <div class="container">
       <div class="flex-w flex-tr">
         <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-          <form>
+
+
+          <form action="" method="POST">
+
             <h4 class="mtext-105 cl2 txt-center p-b-30">
               Đóng góp ý kiến
             </h4>
-
+            <?php
+            if (isset($insertYkien)) {
+              echo $insertYkien;
+            }
+            ?>
             <div class="bor8 m-b-20 how-pos4-parent">
               <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email"
                 placeholder="Địa chỉ email của bạn">
@@ -34,13 +45,14 @@
             </div>
 
             <div class="bor8 m-b-30">
-              <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg"
+              <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="mes"
                 placeholder="Chúng tôi có thể giúp gì được cho bạn?"></textarea>
             </div>
 
-            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="submit">
               Gửi
             </button>
+
           </form>
         </div>
 
