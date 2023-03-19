@@ -16,6 +16,7 @@ require_once '../classes/customer.php';
 
 $db = new Database();
 $fm = new Format();
+$br = new brand();
 $ct = new cart();
 $us = new user();
 $cat = new category();

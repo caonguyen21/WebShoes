@@ -6,7 +6,9 @@
     require_once '../lib/session.php';
     Session::init();
     require_once '../classes/customer.php';
+    require_once '../classes/admin/brand.php';
     require_once '../classes/admin/category.php';
+    $br = new brand();
     $cat = new category();
     $cs = new customer();
     ?>

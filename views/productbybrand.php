@@ -12,13 +12,12 @@
         <!-- Header desktop -->
         <?php include 'blocks/header.php'; ?>
     </header>
-    
     <?php
-        if (!isset($_GET['catID']) || $_GET['catID'] == null) {
-            // echo "<script>window.location='product.php'</script>";
-        } else {
-            $id = $_GET['catID'];
-        }
+      if (!isset($_GET['brID']) || $_GET['brID'] == null) {
+         //echo "<script>window.location='productbybrand.php'</script>";
+    } else {
+        $id = $_GET['brID'];
+    }
     ?>  
     <!-- Product -->
     <div class="bg0 m-t-23 p-b-140">
@@ -150,28 +149,28 @@
                 </div>
             </div>
             <?php
-                $namecat = $cat->getnamecat($id);
-                if ($namecat) {
-                    while ($resul_name = $namecat->fetch_assoc()) {
+                $namebr = $br->getnamebr($id);
+                if ($namebr) {
+                    while ($resul_name = $namebr->fetch_assoc()) {
                         ?>
-            <h4 style="font-weight: bold;">Thể loại: <?php echo $resul_name['TenLoai'] ?></h4>
+            <h4 style="font-weight: bold;">Thương hiệu: <?php echo $resul_name['TenThuongHieu'] ?></h4>
             <?php
                     }
                 }
                 ?>
             <div class="row isotope-grid">
                 <?php
-                $productbycat = $cat->getproductbyCat($id);
-                if ($productbycat) {
-                    while ($resul = $productbycat->fetch_assoc()) {
+                $productbybrand = $br->getproductbybrand($id);
+                if ($productbybrand) {
+                    while ($resul_br = $productbybrand->fetch_assoc()) {
                         ?>
                         <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                             <!-- Block2 -->
                             <div class="block2">
                                 <div class="block2-pic hov-img0">
-                                    <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>" alt="IMG-PRODUCT">
+                                    <img src="../admin/uploads/<?php echo $resul_br['AnhBia'] ?>" alt="IMG-PRODUCT">
 
-                                    <a href="product-detail.php?proID=<?php echo $resul['MaGiay'] ?>"
+                                    <a href="product-detail.php?proID=<?php echo $resul_br['MaGiay'] ?>"
                                         class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                         Xem Thêm
                                     </a>
@@ -179,13 +178,13 @@
 
                                 <div class="block2-txt flex-w flex-t p-t-14">
                                     <div class="block2-txt-child1 flex-col-l ">
-                                        <a href="product-detail.php?proID=<?php echo $resul['MaGiay'] ?>"
+                                        <a href="product-detail.php?proID=<?php echo $resul_br['MaGiay'] ?>"
                                             class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                            <?php echo $resul['TenGiay'] ?>
+                                            <?php echo $resul_br['TenGiay'] ?>
                                         </a>
 
                                         <span class="stext-105 cl3">
-                                            <?php echo $fm->currency_format($resul['GiaBan']) ?>
+                                            <?php echo $fm->currency_format($resul_br['GiaBan']) ?>
                                         </span>
                                     </div>
 

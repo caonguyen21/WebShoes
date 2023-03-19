@@ -123,12 +123,19 @@
                             </div>
 
                             <div class="flex-w p-t-4 m-r--5">
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Lọc theo thương hiệu
-                                </a>
-
+                                <?php
+                                $getall_brand = $br->show_brand();
+                                if ($getall_brand) {
+                                    while ($result_allbr = $getall_brand->fetch_assoc()) {
+                                        ?>
+                                        <a href="productbybrand.php?brID=<?php echo $result_allbr['MaThuongHieu'] ?>"
+                                        class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"><?php echo $result_allbr['TenThuongHieu'] ?></a>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
+
                         </div>
 
                     </div>

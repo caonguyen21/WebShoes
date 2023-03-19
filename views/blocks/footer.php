@@ -22,7 +22,28 @@
                 ?>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50" style="margin-left: auto;">
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    Thương hiệu
+                </h4>
+                <?php
+                $getall_brand = $br->show_brand();
+                if ($getall_brand) {
+                    while ($result_allcat = $getall_brand->fetch_assoc()) {
+                        ?>
+                        <ul>
+                            <li class="p-b-10">
+                                <a href="productbybrand.php?brID=<?php echo $result_allcat['MaThuongHieu'] ?>"
+                                    class="stext-107 cl7 hov-cl1 trans-04"><?php echo $result_allcat['TenThuongHieu'] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     Thông Tin
                 </h4>

@@ -44,6 +44,18 @@ class brand
         $result = $this->db->select($query);
         return $result;
     }
+    public function getproductbybrand($id)
+    {
+        $query = "SELECT * FROM sanpham WHERE MaThuongHieu='$id' order by MaThuongHieu desc LIMIT 8";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getnamebr($id)
+    {
+        $query = "SELECT sanpham.*, thuonghieu.TenThuongHieu, thuonghieu.MaThuongHieu FROM sanpham,thuonghieu WHERE sanpham.MaThuongHieu=thuonghieu.MaThuongHieu AND sanpham.MaThuongHieu ='$id' LIMIT 1";
+        $result = $this->db->select($query);
+        return $result;
+    }
     public function update_brand($brandName, $id)
     {
         $brandName = $this->fm->validation($brandName);
