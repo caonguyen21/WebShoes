@@ -12,13 +12,20 @@
         <!-- Header desktop -->
         <?php include 'blocks/header.php'; ?>
     </header>
+    <?php
+        if (!isset($_GET['catID']) || $_GET['catID'] == null) {
+            echo "<script>window.location='product.php'</script>";
+        } else {
+            $id = $_GET['catID'];
+        }
+    ?>  
     <!-- Product -->
     <div class="bg0 m-t-23 p-b-140">
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
 
-                    <a href="product.php" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
+                      <a href="product.php" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
                         Tất cả sản phẩm
                     </a>
                     <?php
@@ -134,11 +141,21 @@
                     </div>
                 </div>
             </div>
+            <?php
+                $namecat = $cat->getnamecat($id);
+                if ($namecat) {
+                    while ($resul_name = $namecat->fetch_assoc()) {
+                        ?>
+            <h4 style="font-weight: bold;">Thể loại: <?php echo $resul_name['TenLoai'] ?></h4>
+            <?php
+                    }
+                }
+                ?>
             <div class="row isotope-grid">
                 <?php
-                $getproduct_trangthai = $product->getproduct_trangthai();
-                if ($getproduct_trangthai) {
-                    while ($resul = $getproduct_trangthai->fetch_assoc()) {
+                $productbycat = $cat->getproductbyCat($id);
+                if ($productbycat) {
+                    while ($resul = $productbycat->fetch_assoc()) {
                         ?>
                         <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                             <!-- Block2 -->

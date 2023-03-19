@@ -5,32 +5,21 @@
                 <h4 class="stext-301 cl0 p-b-30">
                     Thể loại
                 </h4>
-
-                <ul>
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
-                        </a>
-                    </li>
-                </ul>
+                <?php
+                $getall_category = $cat->show_category();
+                if ($getall_category) {
+                    while ($result_allcat = $getall_category->fetch_assoc()) {
+                        ?>
+                        <ul>
+                            <li class="p-b-10">
+                                <a href="productbycat.php?catID=<?php echo $result_allcat['MaLoai'] ?>"
+                                    class="stext-107 cl7 hov-cl1 trans-04"><?php echo $result_allcat['TenLoai'] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                }
+                ?>
             </div>
 
             <div class="col-sm-6 col-lg-3 p-b-50" style="margin-left: auto;">

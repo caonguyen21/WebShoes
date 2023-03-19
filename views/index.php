@@ -25,29 +25,20 @@
 
       <div class="flex-w flex-sb-m p-b-52">
         <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+          <a href="product.php" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
             Tất cả sản phẩm
-          </button>
-
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-            Women
-          </button>
-
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-            Men
-          </button>
-
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-            Bag
-          </button>
-
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-            Shoes
-          </button>
-
-          <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-            Watches
-          </button>
+          </a>
+          <?php
+          $getall_category = $cat->show_category();
+          if ($getall_category) {
+            while ($result_allcat = $getall_category->fetch_assoc()) {
+              ?>
+              <a href="productbycat.php?catID=<?php echo $result_allcat['MaLoai'] ?>"
+                class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"><?php echo $result_allcat['TenLoai'] ?></a>
+              <?php
+            }
+          }
+          ?>
         </div>
       </div>
       <div class="row isotope-grid">
@@ -76,7 +67,7 @@
                     </a>
 
                     <span class="stext-105 cl3">
-                      <?php echo $fm->currency_format($resul['GiaBan'])?>
+                      <?php echo $fm->currency_format($resul['GiaBan']) ?>
                     </span>
                   </div>
 

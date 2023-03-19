@@ -24,10 +24,10 @@ class category
             $result = $this->db->insert($query);
             if ($result) {
                 $alert = "<span class='success'> Thêm dữ liệu thành công </span>";
-                return  $alert;
+                return $alert;
             } else {
                 $alert = "<span class='error'> Thêm dữ liệu thất bại </span>";
-                return  $alert;
+                return $alert;
             }
         }
     }
@@ -44,6 +44,18 @@ class category
         $result = $this->db->select($query);
         return $result;
     }
+    public function getproductbyCat($id)
+    {
+        $query = "SELECT * FROM sanpham WHERE MaLoai='$id' order by MaLoai desc LIMIT 8";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getnamecat($id)
+    {
+        $query = "SELECT sanpham.*, loaigiay.TenLoai, loaigiay.MaLoai FROM sanpham,loaigiay WHERE sanpham.MaLoai=loaigiay.MaLoai AND sanpham.MaLoai ='$id' LIMIT 1";
+        $result = $this->db->select($query);
+        return $result;
+    }
     public function update_category($catName, $status, $id)
     {
         $catName = $this->fm->validation($catName);
@@ -57,10 +69,10 @@ class category
             $result = $this->db->update($query);
             if ($result) {
                 $alert = "<span class='success'> Thay đổi danh mục thành công </span>";
-                return  $alert;
+                return $alert;
             } else {
                 $alert = "<span class='error'>  Thay đổi tên danh mục thất bại </span>";
-                return  $alert;
+                return $alert;
             }
         }
         $query = "SELECT * FROM loaigiay WHERE MaLoai='$id'";
