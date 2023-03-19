@@ -155,13 +155,27 @@ class product
     }
     public function getproduct_trangthai()
     {
-        $query = "SELECT * FROM sanpham WHERE TrangThai='1' LIMIT 8";
+        $sp_tungtrang = 8;
+        if (!isset($_GET['trang'])) {
+            $trang = 1;
+        } else {
+            $trang = $_GET['trang'];
+        }
+        $tung_trang = ($trang - 1) * $sp_tungtrang;
+        $query = "SELECT * FROM sanpham WHERE TrangThai='1'order by MaGiay LIMIT $tung_trang, $sp_tungtrang";
         $result = $this->db->select($query);
         return $result;
     }
+    public function get_all_product()
+    {
+        $query = "SELECT * FROM sanpham WHERE TrangThai='1'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
     public function getproduct_new()
     {
-        $query = "SELECT * FROM sanpham order by MaGiay desc ";
+        $query = "SELECT * FROM sanpham order by MaGiay desc Limit 8";
         $result = $this->db->select($query);
         return $result;
     }

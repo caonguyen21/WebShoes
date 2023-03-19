@@ -43,9 +43,9 @@
       </div>
       <div class="row isotope-grid">
         <?php
-        $getproduct_trangthai = $product->getproduct_trangthai();
-        if ($getproduct_trangthai) {
-          while ($resul = $getproduct_trangthai->fetch_assoc()) {
+        $getproduct_new = $product->getproduct_new();
+        if ($getproduct_new) {
+          while ($resul = $getproduct_new->fetch_assoc()) {
             ?>
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
               <!-- Block2 -->
@@ -88,10 +88,13 @@
       </div>
       <!-- Xem Thêm -->
       <div class="flex-c-m flex-w w-full p-t-45">
-        <button id="load-more-btn" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+        <a href="product.php"class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
           Xem Thêm
-        </button>
+        </a>
+       
       </div>
+
+      
 
     </div>
   </section>

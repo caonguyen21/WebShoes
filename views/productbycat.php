@@ -206,11 +206,18 @@
                 ?>
             </div>
 
-            <!-- Xem Thêm -->
-            <div class="flex-c-m flex-w w-full p-t-45">
-                <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                    Xem Thêm
-                </a>
+           <!-- Xem Thêm -->
+           <div class="flex-c-m flex-w w-full p-t-45">
+                <?php
+                    $product_all = $cat->get_all_productbycat($id);
+                    $product_count = mysqli_num_rows($product_all);
+                    $product_buttom = ceil($product_count/4);
+                    $i =1;
+                    echo '<p class="flex-c-m stext-101 cl5">Trang: </p>';
+                    for($i= 1; $i<=$product_buttom;$i++){
+                    echo'<a href="productbycat.php?catID='.$id.'?trang='.$i.'" class="flex-c-m stext-101 cl5" style="margin: 0 5px; color: black; ">'.$i.'</a>';
+                    } 
+               ?>
             </div>
         </div>
     </div>

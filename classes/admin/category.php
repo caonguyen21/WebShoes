@@ -46,7 +46,20 @@ class category
     }
     public function getproductbyCat($id)
     {
-        $query = "SELECT * FROM sanpham WHERE MaLoai='$id' order by MaLoai desc LIMIT 8";
+        $sp_tungtrang = 4;
+        if (!isset($_GET['trang'])) {
+            $trang = 1;
+        } else {
+            $trang = $_GET['trang'];
+        }
+        $tung_trang = ($trang - 1) * $sp_tungtrang;
+        $query = "SELECT * FROM sanpham WHERE MaLoai='$id' order by MaLoai  LIMIT $tung_trang, $sp_tungtrang" ;
+        $result = $this->db->select($query);
+        return $result;
+    } 
+    public function get_all_productbycat($id)
+    {
+        $query = "SELECT * FROM sanpham WHERE MaLoai='$id' order by MaLoai";
         $result = $this->db->select($query);
         return $result;
     }

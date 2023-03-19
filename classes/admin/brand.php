@@ -46,7 +46,20 @@ class brand
     }
     public function getproductbybrand($id)
     {
-        $query = "SELECT * FROM sanpham WHERE MaThuongHieu='$id' order by MaThuongHieu desc LIMIT 8";
+        $sp_tungtrang = 8;
+        if (!isset($_GET['trang'])) {
+            $trang = 1;
+        } else {
+            $trang = $_GET['trang'];
+        }
+        $tung_trang = ($trang - 1) * $sp_tungtrang;
+        $query = "SELECT * FROM sanpham WHERE MaThuongHieu='$id' order by MaThuongHieu LIMIT $tung_trang, $sp_tungtrang";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_all_productbybrand($id)
+    {
+        $query = "SELECT * FROM sanpham WHERE MaThuongHieu='$id' order by MaThuongHieu";
         $result = $this->db->select($query);
         return $result;
     }
