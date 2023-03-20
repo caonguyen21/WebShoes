@@ -14,13 +14,13 @@
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
+                                Now
                             </span>
                         </div>
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                            Mua ngay
                             </div>
                         </div>
                     </a>
@@ -40,13 +40,12 @@
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
-                            </span>
+                                Now
                         </div>
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                                Mua ngay
                             </div>
                         </div>
                     </a>
@@ -72,7 +71,7 @@
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                            Mua ngay
                             </div>
                         </div>
                     </a>
