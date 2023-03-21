@@ -12,8 +12,10 @@
     require_once '../classes/admin/category.php';
     require_once '../classes/cart.php';
     require_once '../classes/admin/product.php';
+    require_once '../classes/customer.php';
     $ct = new cart();
     $br = new brand();
+    $cs = new customer();
     $cat = new category();
     $product = new product();
     $fm = new Format();
@@ -40,9 +42,12 @@
     }
     ?>
     <?php
-    if(!isset($_GET['id'])){
-        echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
-    } 
+    if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {
+        $customer_id = Session::get('customer_id');
+        $insertOrder = $ct->insertOrder($customer_id);
+        $delCart = $ct->del_all_data_cart();
+        header('Location:success.php');
+    }
     ?>
     <div class="container-menu-desktop">
         <!-- Topbar -->
@@ -158,11 +163,9 @@
                                     <th class="column-1">Sản phẩm</th>
                                     <th class="column-2"></th>
                                     <th class="column-3">Giá</th>
-                                    <th class="column-4">Số lượng</th>
-                                    <th class="column-5"></th>
-                                    <th class="column-6">Thành tiền</th>
+                                    <th class="column-3">Số lượng</th>
+                                    <th class="column-4">Thành tiền</th>
                                 </tr>
-
                                 <?php
                                 $getproduct_cart = $ct->get_product_cart();
                                 if ($getproduct_cart) {
@@ -170,62 +173,47 @@
                                     $qty = 0;
                                     while ($resul = $getproduct_cart->fetch_assoc()) {
                                         ?>
-                                        <!-- start sản phẩm -->
-                                        <form action="" method="post">
-                                            <tr class="table_row">
-                                                <td class="column-1">
-                                                    <a href="?cartid=<?php echo $resul['cartId'] ?>">
-                                                        <div class="how-itemcart1">
-                                                            <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>"
-                                                                alt="IMG">
-                                                        </div>
-                                                    </a>
-                                                </td>
-
-                                                <td class="column-2">
-                                                    <?php echo $resul['TenGiay'] ?>
-                                                </td>
-
-                                                <td class="column-3">
-                                                    <?php echo $fm->currency_format($resul['GiaBan']) ?>
-                                                </td>
-
-                                                <td class="column-4">
+                                        <tr class="table_row">
+                                            <td class="column-1">
+                                                <a href="?cartid=<?php echo $resul['cartId'] ?>">
+                                                    <div class="how-itemcart1">
+                                                        <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>" alt="IMG">
+                                                    </div>
+                                                </a>
+                                            </td>
+                                            <td class="column-2">
+                                                <?php echo $resul['TenGiay'] ?>
+                                            </td>
+                                            <td class="column-2">
+                                                <?php echo $fm->currency_format($resul['GiaBan']) ?>
+                                            </td>
+                                            <td class="column-3">
+                                                <form action="" method="post">
                                                     <div class="wrap-num-product flex-w m-l-auto m-r-0">
-
                                                         <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                                             <i class="fs-16 zmdi zmdi-minus"></i>
                                                         </div>
-
                                                         <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                            name="SoLuong" min="0" value="<?php echo $resul['SoLuong'] ?>">
-
+                                                            name="SoLuong" value="<?php echo $resul['SoLuong'] ?>">
                                                         <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                             <i class="fs-16 zmdi zmdi-plus"></i>
                                                         </div>
-
-                                                        <input class="mtext-104 cl3 txt-center num-product" type="hidden"
-                                                            name="cartId" value="<?php echo $resul['cartId'] ?>">
-
                                                     </div>
-                                                </td>
-                                                <td class="column-5">
-                                                    <button
-                                                        class="flex-c-m stext-101 cl2 size-119 bg8 hov-btn3 p-lr-15 trans-04 pointer m-tb-10"
+                                                    <input class="mtext-104 cl3 txt-center num-product" type="hidden"
+                                                        name="cartId" value="<?php echo $resul['cartId'] ?>">
+                                                    <button class="wrap-num-product stext-101 hov-btn3 p-lr-15 trans-04"
                                                         name="submit">
                                                         Cập nhật
                                                     </button>
-                                                </td>
-
-                                                <td class="column-6">
-                                                    <?php
-                                                    $total = $resul['GiaBan'] * $resul['SoLuong'];
-                                                    echo $fm->currency_format($total);
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                            <!-- endsanpham -->
-                                        </form>
+                                                </form>
+                                            </td>
+                                            <td class="column-4">
+                                                <?php
+                                                $total = $resul['GiaBan'] * $resul['SoLuong'];
+                                                echo $fm->currency_format($total);
+                                                ?>
+                                            </td>
+                                        </tr>
                                         <?php
                                         $subtotal += $total;
                                         $qty = $qty + $resul['SoLuong'];
@@ -290,20 +278,24 @@
                                     Địa chỉ:
                                 </span>
                             </div>
+                            <?php
+                            $id = Session::get('customer_id');
+                            $get_customers = $cs->show_customers($id);
+                            if ($get_customers) {
+                                while ($resul = $get_customers->fetch_assoc()) {
+                                    ?>
+                                    <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                                        <p class="stext-111 cl6 p-t-2">
+                                            <?php
+                                            echo $resul['DiaChiKH'];
+                                            ?>
+                                        </p>
 
-                            <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                <p class="stext-111 cl6 p-t-2">
-                                    Nhập địa chỉ giao hàng. Mọi sự trợ giúp vui lòng liên hệ cửa hàng hoặc SDT:
-                                    0985797250
-                                </p>
-
-                                <div class="p-t-15">
-                                    <div class="bor8 bg0 m-b-22">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode"
-                                            placeholder="Nhập địa chỉ giao hàng">
                                     </div>
-                                </div>
-                            </div>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </div>
 
                         <div class="flex-w flex-t p-t-27 p-b-33">
@@ -332,9 +324,10 @@
                         </div>
 
 
-                        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        <a href="?orderid=order"
+                            class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                             Đặt hàng
-                        </button>
+                        </a>
                     </div>
                 </div>
 

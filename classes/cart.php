@@ -92,5 +92,23 @@ class cart
         $result = $this->db->select($query);
         return $result;
     }
+    public function insertOrder($customer_id)
+    {
+        $sId = session_id();
+        $query = "SELECT * FROM giohang WHERE sId = '$sId'";
+        $get_product = $this->db->select($query);
+        if ($get_product) {
+            while ($result = $get_product->fetch_assoc()) {
+                $productid = $result['MaGiay'];
+                $productname = $result['TenGiay'];
+                $quantity = $result['SoLuong'];
+                $price = $result['GiaBan'] * $result['SoLuong'];
+                $image = $result['AnhBia'];
+                $customerid = $customer_id;
+                $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid')";
+                $insert_order = $this->db->insert($query_order);
+            }
+        }
+    }
 }
 ?>

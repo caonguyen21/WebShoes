@@ -91,6 +91,11 @@ class customer
             }
         }
     }
-
+    public function show_customers($id)
+    {
+        $query = "SELECT * FROM khachhang WHERE MaKH='$id'";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 ?>
