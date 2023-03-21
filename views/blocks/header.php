@@ -46,6 +46,7 @@ header("Cache-Control: max-age=25292000");
                 </a>
                 <?php
                 if (isset($_GET['customer_id'])) {
+                    $delCart = $ct->del_all_data_cart();
                     Session::destroy();
                 }
                 $login_check = Session::get('customer_login');
@@ -89,11 +90,21 @@ header("Cache-Control: max-age=25292000");
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
                 </div>
-                <a href="shoping-cart.php"
-                    class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                    data-notify="2">
+
+                <a href="shoping-cart.php" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11"
+                    data-notify="">
                     <i class="zmdi zmdi-shopping-cart"></i>
+                    <?php
+                    $check_cart = $ct->check_cart();
+                    if ($check_cart) {
+                        $qty = Session::get("qty");
+                        echo $qty;
+                    } else {
+                        echo '0';
+                    }
+                    ?>
                 </a>
+
             </div>
         </nav>
     </div>

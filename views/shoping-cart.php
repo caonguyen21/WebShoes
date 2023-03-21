@@ -2,21 +2,25 @@
 <html lang="en">
 
 <head>
-    <?php include 'blocks/head.php'; ?>
+    <?php
+    include 'blocks/head.php';
+    require_once '../helpers/format.php';
+    require_once '../lib/session.php';
+    Session::init();
+    Session::checkSessionUser();
+    require_once '../classes/admin/brand.php';
+    require_once '../classes/admin/category.php';
+    require_once '../classes/cart.php';
+    require_once '../classes/admin/product.php';
+    $ct = new cart();
+    $br = new brand();
+    $cat = new category();
+    $product = new product();
+    $fm = new Format();
+    ?>
 </head>
 
-<?php
-include '../lib/session.php';
-Session::checkSessionUser();
-?>
-
 <body class="animsition">
-
-    <!-- Header -->
-    <header class="header-v4">
-        <?php include 'blocks/header.php'; ?>
-    </header>
-
     <?php
     $login_check = Session::get('customer_login');
     if ($login_check == false) {
@@ -24,6 +28,111 @@ Session::checkSessionUser();
     }
     ?>
 
+    <?php
+    if (isset($_GET['cartid'])) {
+        $cartid = $_GET['cartid'];
+        $delcart = $ct->del_product_cart($cartid);
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+        $cartId = $_POST['cartId'];
+        $quantity = $_POST['SoLuong'];
+        $UpdateCart = $ct->UpdateCart($quantity, $cartId);
+    }
+    ?>
+    <?php
+    if(!isset($_GET['id'])){
+        echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
+    } 
+    ?>
+    <div class="container-menu-desktop">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    Shop Giày Độc Lạ Bình Dương
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+                    <a href="contact.php" class="flex-c-m trans-04 p-lr-25">
+                        Liên Hệ
+                    </a>
+                    <?php
+                    if (isset($_GET['customer_id'])) {
+                        $delCart = $ct->del_all_data_cart();
+                        Session::destroy();
+                    }
+                    $login_check = Session::get('customer_login');
+                    if ($login_check == false) {
+                        echo '<a href="../views/login.php" class="flex-c-m trans-04 p-lr-25"> Tài Khoản</a>';
+                    } else {
+                        echo '<a href="#" class="flex-c-m trans-04 p-lr-25">Xin Chào' . " " . Session::get('customer_name') . ' </a>';
+                        echo '<a href="?customer_id=' . Session::get('customer_id') . '" class="flex-c-m trans-04 p-lr-25">Đăng Xuất</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-menu-desktop">
+            <nav class="limiter-menu-desktop container">
+                <!-- Logo desktop -->
+                <a href="index.php" class="logo">
+                    <img src="../public/images/icons/logo-01.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu desktop -->
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li>
+                            <a href="index.php">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="product.php">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="about.php">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="contact.php">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Icon header -->
+                <div class="wrap-icon-header flex-w flex-r-m">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                        <i class="zmdi zmdi-search"></i>
+                    </div>
+                    <a href="shoping-cart.php" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                        <?php
+                        $check_cart = $ct->check_cart();
+                        if ($check_cart) {
+                            $qty = Session::get("qty");
+                            echo $qty;
+                        } else {
+                            echo '0';
+                        }
+                        ?>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <!-- Modal Search -->
+        <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+            <div class="container-search-header">
+                <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+                    <img src="../public/images/icons/icon-close2.png" alt="CLOSE">
+                </button>
+
+                <form class="wrap-search-header flex-w p-l-15">
+                    <button class="flex-c-m trans-04">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+                    <input class="plh3" type="text" name="search" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- breadcrumb -->
     <div class="container">
         <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
@@ -44,50 +153,101 @@ Session::checkSessionUser();
                 <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
                     <div class="m-l-25 m-r--38 m-lr-0-xl">
                         <div class="wrap-table-shopping-cart">
-
                             <table class="table-shopping-cart">
                                 <tr class="table_head">
                                     <th class="column-1">Sản phẩm</th>
                                     <th class="column-2"></th>
                                     <th class="column-3">Giá</th>
                                     <th class="column-4">Số lượng</th>
-                                    <th class="column-5">Thành tiền</th>
+                                    <th class="column-5"></th>
+                                    <th class="column-6">Thành tiền</th>
                                 </tr>
-                                <!-- start1sanpham -->
-                                <tr class="table_row">
-                                    <td class="column-1">
-                                        <div class="how-itemcart1">
-                                            <img src="../public/images/item-cart-04.jpg" alt="IMG">
-                                        </div>
-                                    </td>
-                                    <td class="column-2">Fresh Strawberries</td>
-                                    <td class="column-3">$ 36.00</td>
-                                    <td class="column-4">
-                                        <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-minus"></i>
-                                            </div>
 
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                name="num-product1" value="1">
+                                <?php
+                                $getproduct_cart = $ct->get_product_cart();
+                                if ($getproduct_cart) {
+                                    $subtotal = 0;
+                                    $qty = 0;
+                                    while ($resul = $getproduct_cart->fetch_assoc()) {
+                                        ?>
+                                        <!-- start sản phẩm -->
+                                        <form action="" method="post">
+                                            <tr class="table_row">
+                                                <td class="column-1">
+                                                    <a href="?cartid=<?php echo $resul['cartId'] ?>">
+                                                        <div class="how-itemcart1">
+                                                            <img src="../admin/uploads/<?php echo $resul['AnhBia'] ?>"
+                                                                alt="IMG">
+                                                        </div>
+                                                    </a>
+                                                </td>
 
-                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-plus"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="column-5">$ 36.00</td>
-                                </tr>
-                                <!-- end1sanpham -->
+                                                <td class="column-2">
+                                                    <?php echo $resul['TenGiay'] ?>
+                                                </td>
+
+                                                <td class="column-3">
+                                                    <?php echo $fm->currency_format($resul['GiaBan']) ?>
+                                                </td>
+
+                                                <td class="column-4">
+                                                    <div class="wrap-num-product flex-w m-l-auto m-r-0">
+
+                                                        <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                                                        </div>
+
+                                                        <input class="mtext-104 cl3 txt-center num-product" type="number"
+                                                            name="SoLuong" min="0" value="<?php echo $resul['SoLuong'] ?>">
+
+                                                        <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                                        </div>
+
+                                                        <input class="mtext-104 cl3 txt-center num-product" type="hidden"
+                                                            name="cartId" value="<?php echo $resul['cartId'] ?>">
+
+                                                    </div>
+                                                </td>
+                                                <td class="column-5">
+                                                    <button
+                                                        class="flex-c-m stext-101 cl2 size-119 bg8 hov-btn3 p-lr-15 trans-04 pointer m-tb-10"
+                                                        name="submit">
+                                                        Cập nhật
+                                                    </button>
+                                                </td>
+
+                                                <td class="column-6">
+                                                    <?php
+                                                    $total = $resul['GiaBan'] * $resul['SoLuong'];
+                                                    echo $fm->currency_format($total);
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <!-- endsanpham -->
+                                        </form>
+                                        <?php
+                                        $subtotal += $total;
+                                        $qty = $qty + $resul['SoLuong'];
+                                    }
+                                }
+                                ?>
+
                             </table>
 
                         </div>
 
-                        <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-                            <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10"
-                                style="margin-left: auto;">
-                                Cập nhật giỏ hàng
-                            </div>
+                        <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm" style="margin-left:auto;">
+                            <?php
+                            if (isset($UpdateCart)) {
+                                echo $UpdateCart;
+                            }
+                            ?>
+                            <?php
+                            if (isset($delcart)) {
+                                echo $delcart;
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -100,16 +260,28 @@ Session::checkSessionUser();
 
                         <div class="flex-w flex-t bor12 p-b-13">
                             <div class="size-208">
-                                <span class="stext-110 cl2">
-                                    Tổng tiền:
-                                </span>
-                            </div>
 
-                            <div class="size-209">
-                                <span class="mtext-110 cl2">
-                                    $79.65
+                                <span class="stext-110 cl2">
+                                    Tổng Tiền
                                 </span>
                             </div>
+                            <?php
+                            $check_cart = $ct->check_cart();
+                            if ($check_cart) {
+                                ?>
+                                <div class="size-209">
+                                    <span class="mtext-110 cl2">
+                                        <?php
+                                        echo $fm->currency_format($subtotal);
+                                        Session::set('qty', $qty);
+                                        ?>
+                                    </span>
+                                </div>
+                                <?php
+                            } else {
+                                echo '';
+                            }
+                            ?>
                         </div>
 
                         <div class="flex-w flex-t bor12 p-t-15 p-b-30">
@@ -121,7 +293,8 @@ Session::checkSessionUser();
 
                             <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
                                 <p class="stext-111 cl6 p-t-2">
-                                    Nhập địa chỉ giao hàng. Mọi sự trợ giúp vui lòng liên hệ cửa hàng hoặc SDT: 0985797250
+                                    Nhập địa chỉ giao hàng. Mọi sự trợ giúp vui lòng liên hệ cửa hàng hoặc SDT:
+                                    0985797250
                                 </p>
 
                                 <div class="p-t-15">
@@ -141,17 +314,30 @@ Session::checkSessionUser();
                             </div>
 
                             <div class="size-209 p-t-1">
-                                <span class="mtext-110 cl2">
-                                    $79.65
-                                </span>
+                                <?php
+                                $check_cart = $ct->check_cart();
+                                if ($check_cart) {
+                                    ?>
+                                    <span class="mtext-110 cl2">
+                                        <?php
+                                        echo $fm->currency_format($subtotal);
+                                        ?>
+                                    </span>
+                                    <?php
+                                } else {
+                                    echo '';
+                                }
+                                ?>
                             </div>
                         </div>
+
 
                         <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                             Đặt hàng
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </form>

@@ -40,6 +40,7 @@
                     </a>
                     <?php
                     if (isset($_GET['customer_id'])) {
+                        $delCart = $ct->del_all_data_cart();
                         Session::destroy();
                     }
                     $login_check = Session::get('customer_login');
@@ -84,8 +85,7 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
                     <a href="shoping-cart.php"
-                        class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                        data-notify="2">
+                        class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </a>
                 </div>
