@@ -40,7 +40,7 @@ class customer
                 $result = $this->db->insert($query);
                 if ($result) {
                     $alert = "<span class='success'> Đăng ký tài khoản thành công </span>";
-                    header("Location:index.php");
+                    header("Location:login.php");
                 } else {
                     $alert = "<span class='error'> Đăng ký tài khoản thất bại </span>";
                     return $alert;
