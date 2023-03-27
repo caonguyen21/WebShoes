@@ -26,17 +26,14 @@
                         <li><a href="productList.php">DANH SÁCH SẢN PHẨM</a> </li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Site Option</a>
+                <li><a class="menuitem">ĐƠN HÀNG</a>
                     <ul class="submenu">
-                        <li><a href="titleslogan.php">Title & Slogan</a></li>
-                        <li><a href="social.php">Social Media</a></li>
-                        <li><a href="copyright.php">Copyright</a></li>
+                        <li><a href="titleslogan.php">DANH SÁCH ĐƠN HÀNG</a></li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Update Pages</a>
+                <li><a class="menuitem">KHÁCH HÀNG</a>
                     <ul class="submenu">
-                        <li><a>About Us</a></li>
-                        <li><a>Contact Us</a></li>
+                        <li><a href="sliderAdd.php">DANH SÁCH KHÁCH HÀNG</a></li>
                     </ul>
                 </li>
                 <li><a class="menuitem">Slider</a>

@@ -31,8 +31,8 @@ class product
         $div = explode('.', $file_name);
         $file_ext = strtolower(end($div));
         $unique_image = substr(md5(time()), 0.10) . '.' . $file_ext;
-        $uploaded_image = "uploads/" . $unique_image;
 
+        $uploaded_image = "uploads/" . $unique_image;
         if ($TenGiay == "" || $loaigiay == "" || $thuonghieu == "" || $nhacungcap == "" || $GiaBan == "" || $Size == "" || $BaoHanh == "" || $GiaBan == "" || $SL == "" || $file_name == "" || $Size == "") {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;

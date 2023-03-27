@@ -26,9 +26,9 @@
 <?php
 $class = new adminlogin();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $adminUser = $_POST['adminUser'];
-    $adminPass = md5($_POST['adminPass']);
-    $login_check = $class->login_admin($adminUser, $adminPass);
+  $adminUser = $_POST['adminUser'];
+  $adminPass = md5($_POST['adminPass']);
+  $login_check = $class->login_admin($adminUser, $adminPass);
 }
 ?>
 <!DOCTYPE html>
@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Administrator</h1>
     <span>
       <?php if (isset($login_check)) {
-                echo $login_check;
-            } ?>
+        echo $login_check;
+      } ?>
     </span>
     <div class="input-field">
       <input type="text" name="adminUser" required="" placeholder="Nhập Username" />
