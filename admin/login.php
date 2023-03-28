@@ -81,11 +81,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
   <form action="login.php" method="post">
     <h1>Administrator</h1>
-    <span>
-      <?php if (isset($login_check)) {
-        echo $login_check;
-      } ?>
-    </span>
+    <?php
+    if (isset($login_check)) {
+    ?>
+      <script>
+        alert("<?php echo $login_check; ?>");
+      </script>
+    <?php
+    }
+    ?>
+
     <div class="input-field">
       <input type="text" name="adminUser" required="" placeholder="Nhập Username" />
     </div>

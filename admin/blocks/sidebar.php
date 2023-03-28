@@ -28,12 +28,12 @@
                 </li>
                 <li><a class="menuitem">ĐƠN HÀNG</a>
                     <ul class="submenu">
-                        <li><a href="titleslogan.php">DANH SÁCH ĐƠN HÀNG</a></li>
+                        <li><a href="billList.php">DANH SÁCH ĐƠN HÀNG</a></li>
                     </ul>
                 </li>
                 <li><a class="menuitem">KHÁCH HÀNG</a>
                     <ul class="submenu">
-                        <li><a href="sliderAdd.php">DANH SÁCH KHÁCH HÀNG</a></li>
+                        <li><a href="userList.php">DANH SÁCH KHÁCH HÀNG</a></li>
                     </ul>
                 </li>
                 <li><a class="menuitem">Slider</a>

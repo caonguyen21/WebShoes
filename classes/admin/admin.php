@@ -20,14 +20,15 @@ class admin
         $newpass = mysqli_real_escape_string($this->db->link, $newpass);
         $id = Session::get('adminID');
         // Khởi tạo biến query để kiểm tra mật khẩu.
-        $query = "SELECT * FROM quanly WHERE adminID='$id'AND adminPass='$oldpass' LIMIT 1";
+        $query = "SELECT * FROM quanly WHERE adminID='$id'AND adminPass='$oldpass'";
         $result = $this->db->select($query);
         if ($result) {
             // Mật khẩu cũ khớp with and is correct
             // Tạo câu lệnh SQL để cập nhật mật khẩu mới
-            $query = "UPDATE quanly  SET adminPass = '$newpass' WHERE adminID='$id' LIMIT 1";
+            $query = "UPDATE quanly  SET adminPass = '$newpass' WHERE adminID='$id'";
             $updated_row = $this->db->update($query);
             if ($updated_row) {
+                Session::destroy();
                 $alert = "<span class='success'>Password updated successfully!</span>";
                 return $alert;
             } else {

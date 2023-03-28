@@ -76,8 +76,7 @@ Session::checkSession();
     <div class="grid_12">
       <ul class="nav main">
         <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
-        <li class="ic-form-style"><a href=""><span>Admin Profile</span></a></li>
-        <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
+        <li class="ic-form-style"><a href="changepassword.php"><span>Change Password</span></a></li>
         <li class="ic-charts"><a href="/webshoes/views/"><span>Visit Website</span></a></li>
       </ul>
     </div>

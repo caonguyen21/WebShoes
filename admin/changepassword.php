@@ -2,12 +2,14 @@
 <?php include 'blocks/sidebar.php'; ?>
 <?php include '../classes/admin/admin.php'; ?>
 <?php
+ob_start();
 $class = new admin();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $oldpass = md5($_POST['oldpass']);
     $newpass = md5($_POST['newpass']);
     $change = $class->change_password($oldpass, $newpass);
 }
+ob_end_flush();
 ?>
 <div class="grid_10">
     <div class="box round first grid">

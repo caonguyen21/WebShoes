@@ -38,7 +38,7 @@ $product = new product();
 								<td><?php echo $i ?></td>
 								<td><?php echo $result['TenGiay'] ?></td>
 								<td><?php echo $result['Size'] ?></td>
-								<td><img src="../admin/uploads/<?php echo $result['AnhBia'] ?>" width="80"></td>
+								<td><img src="uploads/<?php echo trim($result['AnhBia']) ?>" width="80"></td>
 								<td><?php echo $result['GiaBan'] ?></td>
 								<td><?php echo $result['TenThuongHieu'] ?></td>
 								<td><?php echo $result['TenNCC'] ?></td>
