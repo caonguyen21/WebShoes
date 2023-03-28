@@ -105,7 +105,9 @@ class cart
                 $price = $result['GiaBan'] * $result['SoLuong'];
                 $image = $result['AnhBia'];
                 $customerid = $customer_id;
-                $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid')";
+                $NgayDat = date('Y-m-d H:i:s');
+                $TinhTrang = '0';
+                $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH, NgayDat, TinhTrang) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid','$NgayDat','$TinhTrang')";
                 $insert_order = $this->db->insert($query_order);
             }
         }
