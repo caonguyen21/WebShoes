@@ -4,6 +4,15 @@
 <?php
 $user = new user();
 ?>
+<style>
+    .status-1 {
+        color: green;
+    }
+
+    .status-0 {
+        color: red;
+    }
+</style>
 <div class="grid_10">
     <div class="box round first grid">
         <h2>DANH SÁCH THƯƠNG HIỆU</h2>
@@ -16,7 +25,7 @@ $user = new user();
                         <th>HỌ TÊN</th>
                         <th>EMAIL</th>
                         <th>ĐỊA CHỈ</th>
-                        <th>NGÀY SINH</th>
+                        <th>SĐT</th>
                         <th>NGÀY SINH</th>
                         <th>TRẠNG THÁI</th>
                         <th>Action</th>
@@ -38,8 +47,20 @@ $user = new user();
                                 <td><?php echo $result['DiaChiKH'] ?></td>
                                 <td><?php echo $result['DienThoaiKH'] ?></td>
                                 <td><?php echo $result['NgaySinh'] ?></td>
-                                <td><?php echo $result['TrangThai'] ?></td>
-                                <td><a href="brandEdit.php?brandid=<?php echo $result['MaKH'] ?>">Edit</a></td>
+                                <td>
+                                    <?php
+                                    $temp = $result['TrangThai'];
+                                    switch ($temp) {
+                                        case '0':
+                                            echo '<span class="status-0">Vô hiệu hóa</span>';
+                                            break;
+                                        case '1':
+                                            echo '<span class="status-1">Đang hoạt động</span>';
+                                            break;
+                                    }
+                                    ?>
+                                </td>
+                                <td><a href="userEdit.php?userid=<?php echo $result['MaKH'] ?>">Edit</a></td>
                             </tr>
                     <?php
                         }
