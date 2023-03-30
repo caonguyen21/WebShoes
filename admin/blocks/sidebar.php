@@ -36,7 +36,12 @@
                         <li><a href="userList.php">DANH SÁCH KHÁCH HÀNG</a></li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Slider</a>
+                <li><a class="menuitem">Ý KIẾN KHÁCH HÀNG</a>
+                    <ul class="submenu">
+                        <li><a href="reviewsList.php">DANH SÁCH Ý KIẾN</a> </li>
+                    </ul>
+                </li>
+                <li><a class="menuitem">SLIDER</a>
                     <ul class="submenu">
                         <li><a href="sliderAdd.php">THÊM SLIDER</a> </li>
                         <li><a href="sliderList.php">DANH SÁCH SLIDER</a> </li>

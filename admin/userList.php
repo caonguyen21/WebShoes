@@ -15,7 +15,7 @@ $user = new user();
 </style>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>DANH SÁCH THƯƠNG HIỆU</h2>
+        <h2>DANH SÁCH KHÁCH HÀNG</h2>
         <div class="block">
             <table class="data display datatable" id="example">
                 <thead>
@@ -41,7 +41,7 @@ $user = new user();
                     ?>
                             <tr class="odd gradeX">
                                 <td><?php echo $i ?></td>
-                                <td><?php echo $result['TaiKhoanKH'] ?></td>
+                                <td><a href="userBill.php?userid=<?php echo $result['MaKH'] ?>"><?php echo $result['TaiKhoanKH'] ?></a></td>
                                 <td><?php echo $result['HoTen'] ?></td>
                                 <td><?php echo $result['EmailKH'] ?></td>
                                 <td><?php echo $result['DiaChiKH'] ?></td>

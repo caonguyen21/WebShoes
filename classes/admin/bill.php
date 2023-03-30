@@ -38,5 +38,11 @@ class bill
         $result = $this->db->select($query);
         return $result;
     }
+    public function show_bill_oderby_user($id)
+    {
+        $query = "SELECT * FROM dondathang WHERE MaKH='$id' ORDER BY id DESC";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 ?>
