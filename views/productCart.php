@@ -100,6 +100,7 @@
                         <tr>
                             <th>MÃ ĐƠN HÀNG</th>
                             <th>TÊN GIÀY</th>
+                            <th>Size</th>
                             <th>ẢNH BÌA</th>
                             <th>SỐ LƯỢNG</th>
                             <th>GIÁ BÁN</th>
@@ -121,6 +122,9 @@
                                     </td>
                                     <td>
                                         <?php echo $result['TenGiay'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $result['Size'] ?>
                                     </td>
                                     <td><img src="../admin/uploads/<?php echo trim($result['AnhBia']) ?>" width="80"></td>
                                     <td>

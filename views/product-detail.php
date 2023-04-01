@@ -112,12 +112,11 @@
                 <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
                     <img src="../public/images/icons/icon-close2.png" alt="CLOSE">
                 </button>
-
-                <form class="wrap-search-header flex-w p-l-15">
-                    <button class="flex-c-m trans-04">
+                <form class="wrap-search-header flex-w p-l-15" action="productSearch.php?timkiem" method="post">
+                    <button class="flex-c-m trans-04" name="timkiem">
                         <i class="zmdi zmdi-search"></i>
                     </button>
-                    <input class="plh3" type="text" name="search" placeholder="Search...">
+                    <input class="plh3" type="text" name="tukhoa" placeholder="Nhập tên sản phẩm tìm kiếm..">
                 </form>
             </div>
         </div>

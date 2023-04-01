@@ -6,26 +6,34 @@
 </head>
 
 <body class="animsition">
-
     <!-- Header -->
     <header class="header-v4">
         <!-- Header desktop -->
         <?php include 'blocks/header.php'; ?>
     </header>
     <?php
-      if (!isset($_GET['brID']) || $_GET['brID'] == null) {
-         //echo "<script>window.location='productbybrand.php'</script>";
-    } else {
-        $id = $_GET['brID'];
+     // Khởi tạo kết nối đến cơ sở dữ liệu
+     $server = "localhost";
+     $username = "root";
+     $password = "123456";
+     $database = "webshoe-mysqli";
+     $connection = mysqli_connect($server, $username, $password, $database);
+    // Kiểm tra nếu form đã được submit
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Lấy từ khóa tìm kiếm
+        $tukhoa = $_POST['tukhoa'];
+        // Tạo truy vấn SQL để tìm kiếm sản phẩm
+        $sql = "SELECT * FROM sanpham WHERE TenGiay LIKE '%$tukhoa%'";
+        // Thực thi truy vấn và lưu kết quả vào biến $result
+        $result = mysqli_query($connection, $sql);
     }
-    ?>  
+?>
     <!-- Product -->
     <div class="bg0 m-t-23 p-b-140">
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-
-                      <a href="product.php" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                    <a href="product.php" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
                         Tất cả sản phẩm
                     </a>
                     <?php
@@ -148,29 +156,21 @@
                     </div>
                 </div>
             </div>
-            <?php
-                $namebr = $br->getnamebr($id);
-                if ($namebr) {
-                    while ($resul_name = $namebr->fetch_assoc()) {
-                        ?>
-            <h4 style="font-weight: bold;">Thương hiệu: <?php echo $resul_name['TenThuongHieu'] ?></h4>
-            <?php
-                    }
-                }
-                ?>
+            <!-- product search -->
+            <h4 style="font-weight: bold;">Tìm kiếm sản phẩm: <?php echo $tukhoa ?></h4>
             <div class="row isotope-grid">
                 <?php
-                $productbybrand = $br->getproductbybrand($id);
-                if ($productbybrand) {
-                    while ($resul_br = $productbybrand->fetch_assoc()) {
+                      if (mysqli_num_rows($result) > 0) {
+                        // Hiển thị sản phẩm tìm thấy
+                        while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                         <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                             <!-- Block2 -->
                             <div class="block2">
                                 <div class="block2-pic hov-img0">
-                                    <img src="../admin/uploads/<?php echo $resul_br['AnhBia'] ?>" alt="IMG-PRODUCT">
+                                    <img src="../admin/uploads/<?php echo $row['AnhBia'] ?>" alt="IMG-PRODUCT">
 
-                                    <a href="product-detail.php?proID=<?php echo $resul_br['MaGiay'] ?>"
+                                    <a href="product-detail.php?proID=<?php echo $row['MaGiay'] ?>"
                                         class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                         Xem Thêm
                                     </a>
@@ -178,35 +178,38 @@
 
                                 <div class="block2-txt flex-w flex-t p-t-14">
                                     <div class="block2-txt-child1 flex-col-l ">
-                                        <a href="product-detail.php?proID=<?php echo $resul_br['MaGiay'] ?>"
+                                        <a href="product-detail.php?proID=<?php echo $row['MaGiay'] ?>"
                                             class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                            <?php echo $resul_br['TenGiay'] ?>
+                                            <?php echo $row['TenGiay'] ?>
                                         </a>
 
                                         <span class="stext-105 cl3">
-                                            <?php echo $fm->currency_format($resul_br['GiaBan']) ?>
+                                            <?php echo $fm->currency_format($row['GiaBan']) ?>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php
-                    }
-                }
+                            }
+                        } else {
+                            // Hiển thị thông báo không tìm thấy sản phẩm
+                            echo "<br>";
+                            echo "Không tìm thấy sản phẩm phù hợp.";
+                        }
                 ?>
             </div>
-
+            <!-- Xem Thêm -->
             <div class="flex-c-m flex-w w-full p-t-45">
                 <?php
-                    $product_all = $br->get_all_productbybrand($id);
+                    $product_all = $product->get_all_product();
                     $product_count = mysqli_num_rows($product_all);
                     $product_buttom = ceil($product_count/4);
                     $i =1;
                     echo '<p class="flex-c-m stext-101 cl5">Trang: </p>';
                     for($i= 1; $i<=$product_buttom;$i++){
-                    echo'<a href="productbybrand.php?catID='.$id.'?trang='.$i.'" class="flex-c-m stext-101 cl5" style="margin: 0 5px; color: black; ">'.$i.'</a>';
-                    }
-             
+                    echo'<a href="product.php?trang='.$i.'" class="flex-c-m stext-101 cl5" style="margin: 0 5px; color: black; ">'.$i.'</a>';
+                    } 
                ?>
             </div>
         </div>
@@ -219,6 +222,13 @@
             <i class="zmdi zmdi-chevron-up"></i>
         </span>
     </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--===============================================================================================-->
     <script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->

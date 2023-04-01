@@ -30,6 +30,7 @@ $bill = new bill();
                     <tr>
                         <th>MÃ ĐƠN HÀNG</th>
                         <th>TÊN GIÀY</th>
+                        <th>Size</th>
                         <th>ẢNH BÌA</th>
                         <th>SỐ LƯỢNG</th>
                         <th>GIÁ BÁN</th>
@@ -49,6 +50,7 @@ $bill = new bill();
                             <tr class="odd gradeX">
                                 <td><?php echo $result['id'] ?></td>
                                 <td><?php echo $result['TenGiay'] ?></td>
+                                <td><?php echo $result['Size'] ?></td>
                                 <td><img src="uploads/<?php echo trim($result['AnhBia']) ?>" width="80"></td>
                                 <td><?php echo $result['SoLuong'] ?></td>
                                 <td><?php echo $result['GiaBan'] ?></td>

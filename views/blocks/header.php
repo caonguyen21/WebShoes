@@ -87,9 +87,11 @@ header("Cache-Control: max-age=25292000");
             </div>
             <!-- Icon header -->
             <div class="wrap-icon-header flex-w flex-r-m">
+
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
                 </div>
+
                 <a href="shoping-cart.php" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                     data-notify="  <?php
                     $check_cart = $ct->check_cart();
@@ -112,12 +114,11 @@ header("Cache-Control: max-age=25292000");
         <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
             <img src="../public/images/icons/icon-close2.png" alt="CLOSE">
         </button>
-
-        <form class="wrap-search-header flex-w p-l-15">
-            <button class="flex-c-m trans-04">
+        <form class="wrap-search-header flex-w p-l-15" action="productSearch.php?timkiem" method="post">
+            <button class="flex-c-m trans-04" name="timkiem">
                 <i class="zmdi zmdi-search"></i>
             </button>
-            <input class="plh3" type="text" name="search" placeholder="Search...">
+            <input class="plh3" type="text" name="tukhoa" placeholder="Nhập tên sản phẩm tìm kiếm..">
         </form>
     </div>
 </div>

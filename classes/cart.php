@@ -27,14 +27,14 @@ class cart
         $AnhBia = $resutl['AnhBia'];
         $GiaBan = $resutl['GiaBan'];
         $TenGiay = $resutl['TenGiay'];
-
+        $Size = $resutl['Size'];
         $query_cart = "SELECT * FROM giohang WHERE MaGiay = '$id' AND sId = '$sId' ";
         $check_cart = $this->db->select($query_cart);
         if ($check_cart) {
             $msg = "Sản phẩm này đã có trong giỏ hàng";
             return $msg;
         } else {
-            $query_insert = "INSERT INTO giohang (MaGiay, SoLuong, sId, AnhBia, GiaBan, TenGiay) VALUES('$id', '$quantity', '$sId', '$AnhBia', '$GiaBan', '$TenGiay')";
+            $query_insert = "INSERT INTO giohang (MaGiay, SoLuong, sId, AnhBia, GiaBan, TenGiay, Size) VALUES('$id', '$quantity', '$sId', '$AnhBia', '$GiaBan', '$TenGiay', '$Size')";
             $insert_cart = $this->db->insert($query_insert);
             if ($resutl) {
                 header('Location:shoping-cart.php');
@@ -107,7 +107,8 @@ class cart
                 $customerid = $customer_id;
                 $NgayDat = date('Y-m-d H:i:s');
                 $TinhTrang = '0';
-                $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH, NgayDat, TinhTrang) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid','$NgayDat','$TinhTrang')";
+                $Size = $result['Size'];
+                $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH, NgayDat, TinhTrang, Size) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid','$NgayDat','$TinhTrang','$Size')";
                 $insert_order = $this->db->insert($query_order);
             }
         }
