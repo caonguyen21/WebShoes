@@ -117,7 +117,7 @@
                         <h4 class="mtext-105 cl2 txt-center p-b-30" style="margin: auto;">
                             Thay đổi mật khẩu
                         </h4>
-                        <a href="productCart.php"
+                        <a href="changepassword.php"
                             class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
                             name="submit">
                             Thay đổi mật khẩu mới
