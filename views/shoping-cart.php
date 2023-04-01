@@ -56,7 +56,6 @@
                 <div class="left-top-bar">
                     Shop Giày Độc Lạ Bình Dương
                 </div>
-
                 <div class="right-top-bar flex-w h-full">
                     <a href="contact.php" class="flex-c-m trans-04 p-lr-25">
                         Liên Hệ
@@ -70,7 +69,7 @@
                     if ($login_check == false) {
                         echo '<a href="../views/login.php" class="flex-c-m trans-04 p-lr-25"> Tài Khoản</a>';
                     } else {
-                        echo '<a href="#" class="flex-c-m trans-04 p-lr-25">Xin Chào' . " " . Session::get('customer_name') . ' </a>';
+                        echo '<a href="profile.php" class="flex-c-m trans-04 p-lr-25">Xin Chào' . " " . Session::get('customer_name') . ' </a>';
                         echo '<a href="?customer_id=' . Session::get('customer_id') . '" class="flex-c-m trans-04 p-lr-25">Đăng Xuất</a>';
                     }
                     ?>
@@ -107,9 +106,8 @@
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                         <i class="zmdi zmdi-search"></i>
                     </div>
-                    <a href="shoping-cart.php" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                        <?php
+                    <a href="shoping-cart.php"
+                        class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="  <?php
                         $check_cart = $ct->check_cart();
                         if ($check_cart) {
                             $qty = Session::get("qty");
@@ -117,7 +115,8 @@
                         } else {
                             echo '0';
                         }
-                        ?>
+                        ?>">
+                        <i class="zmdi zmdi-shopping-cart"></i>
                     </a>
                 </div>
             </nav>
@@ -248,7 +247,6 @@
 
                         <div class="flex-w flex-t bor12 p-b-13">
                             <div class="size-208">
-
                                 <span class="stext-110 cl2">
                                     Tổng Tiền
                                 </span>
@@ -289,6 +287,7 @@
                                             <?php
                                             echo $resul['DiaChiKH'];
                                             ?>
+                                            <a href="profile.php">Chỉnh sửa</a>
                                         </p>
 
                                     </div>

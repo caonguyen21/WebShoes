@@ -97,5 +97,32 @@ class customer
         $result = $this->db->select($query);
         return $result;
     }
+    public function update_customers($data, $id)
+    {
+        $HoTen = mysqli_real_escape_string($this->db->link, $data['hoten']);
+        $DiaChiKH = mysqli_real_escape_string($this->db->link, $data['diachi']);
+        $DienThoaiKH = mysqli_real_escape_string($this->db->link, $data['sdt']);
+        $NgaySinh = mysqli_real_escape_string($this->db->link, $data['ngaysinh']);
+        if ($HoTen == "" || $DiaChiKH == "" || $DienThoaiKH == "" || $NgaySinh == "") {
+            $alert = "<span class='error'> Không được bỏ trống </span>";
+            return $alert;
+        } else {
+            $query = "UPDATE khachhang SET HoTen='$HoTen',DiaChiKH='$DiaChiKH',DienThoaiKH='$DienThoaiKH',NgaySinh='$NgaySinh' WHERE MaKH = '$id'";
+            $result = $this->db->insert($query);
+            if ($result) {
+                $alert = "<span class='success'> Cập nhật thông tin tài khoản thành công </span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'> Cập nhật thông tin tài khoản thất bại </span>";
+                return $alert;
+            }
+        }
+    }
+    public function show_bill_oderby_user($id)
+    {
+        $query = "SELECT * FROM dondathang WHERE MaKH='$id' ORDER BY id DESC";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 ?>

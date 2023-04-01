@@ -90,11 +90,8 @@ header("Cache-Control: max-age=25292000");
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
                 </div>
-
-                <a href="shoping-cart.php" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11"
-                    data-notify="">
-                    <i class="zmdi zmdi-shopping-cart"></i>
-                    <?php
+                <a href="shoping-cart.php" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="  <?php
                     $check_cart = $ct->check_cart();
                     if ($check_cart) {
                         $qty = Session::get("qty");
@@ -102,9 +99,9 @@ header("Cache-Control: max-age=25292000");
                     } else {
                         echo '0';
                     }
-                    ?>
+                    ?>">
+                    <i class="zmdi zmdi-shopping-cart"></i>
                 </a>
-
             </div>
         </nav>
     </div>
