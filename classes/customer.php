@@ -55,9 +55,8 @@ class customer
         if ($EmailKH == "" || $MatKhau == "") {
             $alert = "<span class='error'> Không được bỏ trống </span>";
             return $alert;
-
         } else {
-            $check_login = "SELECT * FROM khachhang WHERE  EmailKH ='$EmailKH' AND  MatKhau = '$MatKhau'LIMIT 1";
+            $check_login = "SELECT * FROM khachhang WHERE  EmailKH ='$EmailKH' AND  MatKhau = '$MatKhau' AND TrangThai = '1' LIMIT 1";
             $result_check = $this->db->select($check_login);
             if ($result_check != false) {
                 $value = $result_check->fetch_assoc();
@@ -67,10 +66,16 @@ class customer
                 header('Location:shoping-cart.php');
             } else {
                 $alert = "<span class='error'> Email hoặc mật khẩu không đúng! Vui lòng nhập lại! </span>";
+                $check_lock_account = "SELECT * FROM khachhang WHERE  EmailKH ='$EmailKH' AND TrangThai <> '1' LIMIT 1";
+                $result_lock_account = $this->db->select($check_lock_account);
+                if ($result_lock_account != false) {
+                    $alert = "<span class='error'> Tài khoản đã bị khóa! Vui lòng liên hệ với quản trị viên để biết thêm thông tin! </span>";
+                }
                 return $alert;
             }
         }
     }
+
     public function insert_ykien($data)
     {
         $Email = mysqli_real_escape_string($this->db->link, $data['email']);
