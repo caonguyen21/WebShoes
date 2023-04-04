@@ -144,7 +144,7 @@
             <input type="tel" placeholder="Nhập số điện thoại" name="sdt" id="sdt" required>
 
             <label for="ngaysinh"><b>Chọn ngày sinh</b></label>
-            <input type="datetime-local" name="ngaysinh" id="ngaysinh" required>
+            <input type="date" name="ngaysinh" id="ngaysinh" required>
             <hr>
             <button type="submit" name="submit" class="registerbtn">Đăng ký</button>
         </form>
@@ -268,3 +268,33 @@
         text-align: center;
     }
 </style>
+<script>
+    const pswInput = document.getElementById("psw");
+    const pswRepeatInput = document.getElementById("pswrepeat");
+
+    // Thêm sự kiện nghe khi người dùng nhập vào cả hai trường mật khẩu
+    pswInput.addEventListener("input", checkPasswordsMatch);
+    pswRepeatInput.addEventListener("input", checkPasswordsMatch);
+
+    function checkPasswordsMatch() {
+        const pswValue = pswInput.value;
+        const pswRepeatValue = pswRepeatInput.value;
+
+        if (pswValue === pswRepeatValue) {
+            // Mật khẩu khớp nhau, không có lỗi
+            pswInput.setCustomValidity("");
+        } else {
+            // Mật khẩu không khớp nhau, hiển thị thông báo lỗi
+            pswInput.setCustomValidity("Mật khẩu không khớp");
+        }
+    }
+
+</script>
+<script>
+    function validatePhoneNumber() {
+        var phoneNumber = document.getElementById("sdt").value;
+        if (phoneNumber.length != 12) {
+            alert("Số điện thoại phải có chính xác 12 chữ số");
+        }
+    }
+</script>

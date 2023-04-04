@@ -110,6 +110,7 @@ class cart
                 $Size = $result['Size'];
                 $query_order = "INSERT INTO dondathang(MaGiay, TenGiay, SoLuong,  GiaBan, AnhBia, MaKH, NgayDat, TinhTrang, Size) VALUES(' $productid','  $productname',' $quantity',' $price',' $image',' $customerid','$NgayDat','$TinhTrang','$Size')";
                 $insert_order = $this->db->insert($query_order);
+                return $insert_order;
             }
         }
     }
