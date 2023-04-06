@@ -32,9 +32,8 @@ CREATE TABLE `dondathang` (
   `TenGiay` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `NgayDat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `TinhTrang` tinyint NOT NULL,
-  `Size` tinyint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +42,7 @@ CREATE TABLE `dondathang` (
 
 LOCK TABLES `dondathang` WRITE;
 /*!40000 ALTER TABLE `dondathang` DISABLE KEYS */;
-INSERT INTO `dondathang` VALUES (9,' 29',21,1,' 1900000',' converse1970sdoden.jpg','  Converse 1970s Blach-Red','2023-04-01 13:39:13',0,41),(10,' 38',21,1,' 2300000',' nike2090.jpg','  Nike AirMax2090','2023-04-01 13:39:45',2,39),(11,' 29',21,4,' 7600000',' converse1970sdoden.jpg','  Converse 1970s Blach-Red','2023-04-01 13:44:27',1,41);
+INSERT INTO `dondathang` VALUES (1,' 31',21,1,' 1900000',' converse1970svang.jpg','  Converse 1970s Yellow','2023-03-28 20:46:53',3),(2,' 37',21,4,' 1900000',' converse1970sxanh.jpg','  Converse 1970s Green','2023-03-28 20:46:53',2),(3,' 52',21,1,' 1900000',' vanshc.jpg','  Vans HC','2023-03-28 20:46:53',0),(4,' 53',21,4,' 7600000',' vansoldschool.jpg','  Vans Old School','2023-03-28 20:46:53',0),(5,' 31',21,1,' 1900000',' converse1970svang.jpg','  Converse 1970s Yellow','2023-03-28 15:49:15',0),(6,' 31',24,1,' 1900000',' converse1970svang.jpg','  Converse 1970s Yellow','2023-03-28 15:50:06',0),(7,' 31',21,4,' 7600000',' converse1970svang.jpg','  Converse 1970s Yellow','2023-04-01 08:09:17',3),(8,' 53',21,7,' 13300000',' vansoldschool.jpg','  Vans Old School','2023-04-01 11:50:25',1);
 /*!40000 ALTER TABLE `dondathang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,9 +61,8 @@ CREATE TABLE `giohang` (
   `GiaBan` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `SoLuong` int NOT NULL,
   `AnhBia` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Size` tinyint NOT NULL,
   PRIMARY KEY (`cartId`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +101,7 @@ CREATE TABLE `khachhang` (
 
 LOCK TABLES `khachhang` WRITE;
 /*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` VALUES (21,'Cao Nguyen','202cb962ac59075b964b07152d234b70','Nguyễn Cao nguyên','nguyen@gmail.com','23k7, Bình Đáng, Bình hòa, Thuận an, Bình Dương','0985797250','2001-09-04',1),(22,'nguyen','202cb962ac59075b964b07152d234b70','hao','nguyentest@gmail.com','23k7','0985797250','2023-03-03',1),(23,'nguyen','202cb962ac59075b964b07152d234b70','hao','nguyen2@gmail.com','23k7','32321321','2023-03-15',1),(24,'nguyen','202cb962ac59075b964b07152d234b70','nguyen','nguyen3@gmail.com','23k7','321321','2023-03-18',0);
+INSERT INTO `khachhang` VALUES (21,'Cao Nguyen','e10adc3949ba59abbe56e057f20f883e','Nguyễn Cao nguyên','nguyen@gmail.com','23k7, Bình Đáng, Bình hòa, Thuận an, Bình Dương','0985797250','2001-09-04',1),(22,'nguyen','202cb962ac59075b964b07152d234b70','hao','nguyentest@gmail.com','23k7','0985797250','2023-03-03',1),(23,'nguyen','202cb962ac59075b964b07152d234b70','hao','nguyen2@gmail.com','23k7','32321321','2023-03-09',1),(24,'nguyen','202cb962ac59075b964b07152d234b70','nguyen','nguyen3@gmail.com','23k7','321321','2023-03-18',0);
 /*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +274,7 @@ CREATE TABLE `thuonghieu` (
 
 LOCK TABLES `thuonghieu` WRITE;
 /*!40000 ALTER TABLE `thuonghieu` DISABLE KEYS */;
-INSERT INTO `thuonghieu` VALUES (1,'Nike'),(2,'Vans'),(3,'Adidas'),(4,'Converse'),(5,'Puma'),(8,'Reebok'),(11,'Venuco');
+INSERT INTO `thuonghieu` VALUES (1,'Nike'),(2,'Vans'),(3,'Adidas'),(4,'Converse'),(5,'Puma'),(6,'Balenciaga'),(7,'MLB'),(8,'Reebok'),(9,'MWC'),(10,'Chelsea'),(11,'Venuco');
 /*!40000 ALTER TABLE `thuonghieu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,4 +313,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-01 20:54:49
+-- Dump completed on 2023-04-01 17:33:52
